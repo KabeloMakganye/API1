@@ -23,7 +23,7 @@ export default {
             call_to_action: "", // Call to action
             button_color: "#FF6550", // Color of button
             position: "right", // Position may be 'right' or 'left'
-            pre_filled_message: "Hi, your employees are really good.", // WhatsApp pre-filled message
+            pre_filled_message: "Hello Bra joe, I", // WhatsApp pre-filled message
         };
         var proto = 'https:', host = "getbutton.io", url = proto + '//static.' + host;
         var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = url + '/widget-send-button/js/init.js';

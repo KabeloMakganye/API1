@@ -40,7 +40,7 @@
                <!-- <p class="subhead">It's Nitty &amp; Gritty</p> -->
                <!-- <h1>Limited OFFER </h1> -->
                 <h4></h4>
-                <blockquote>"Ain't too clean till it squeaks! We scrub you shine! Wax, rinse,go!"</blockquote>
+                <blockquote>"Ain't too clean till it squeaks! We scrub your car shine! Wax, rinse,go!"</blockquote>
                     <cite>-BRA JOE</cite>
                <!-- <p style="font-size:50px">&#128295;&#128296;&#128297;</p> -->
                <!-- <div class="hero-cta">
@@ -51,6 +51,28 @@
                 </div> -->
             </div>
            <!-- <img src="../assets/108487139-window-wash-1440.jpg" class="hero-img" alt="Illustration">-->
+        </div>
+    </section>
+        <section class="hero12">
+        <div class="container">
+            <div class="left-col">
+              <img src="../assets/IMG_2436.jpg" width='100%' class="hero-img2" loading="lazy"  alt="Illustration">
+            </DIV>
+            <div class="left-col">
+              <img src="../assets/IMG_1620.jpg" width='100%' class="hero-img2" loading="lazy"  alt="Illustration">
+            </DIV>
+            <div class="left-col">
+              <img src="../assets/IMG_1348.jpg" width='100%' class="hero-img2" loading="lazy"  alt="Illustration">
+            </DIV>
+            <div class="left-col">
+              <img src="../assets/IMG_1365.jpg" width='100%' class="hero-img2" loading="lazy"  alt="Illustration">
+            </DIV>
+            <div class="left-col">
+              <img src="../assets/IMG_2090.jpg" width='100%' class="hero-img2" loading="lazy"  alt="Illustration">
+            </DIV>
+            <div class="left-col">
+              <img src="../assets/IMG_1621.jpg" width='100%' class="hero-img2" loading="lazy"  alt="Illustration">
+            </DIV>
         </div>
     </section>
 
@@ -88,7 +110,7 @@
                     <blockquote>"Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore"</blockquote>
                     <cite>- Jane Doe</cite>
                 </li>
-            </ul> 
+            </ul>
         </div>
     </section> -->
 
@@ -309,6 +331,11 @@ section {
       background:url('../assets/108487139-window-wash-1440.jpg');
       background-image-opacity: 0.2;
 }
+.hero12 {
+  text-align: center;
+      /* background:url('../assets/108487139-window-wash-1440.jpg'); */
+      background-image-opacity: 0.2;
+}
 
 .left-col .subhead {
   text-transform: uppercase;
@@ -346,6 +373,16 @@ section {
 .hero-img {
   width: 70%;
   margin-top: 3em;
+}
+
+.hero-img2 {
+  width: 100%;
+
+  opacity: 0.98;
+
+  border: 0.5px solid var(--primary-color);
+  border-radius: 1%;
+  /* margin-top: -4.5em; */
 }
 
 section.features-section {

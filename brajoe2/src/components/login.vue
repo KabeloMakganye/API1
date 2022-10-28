@@ -63,7 +63,7 @@
         </div>
     </section>
     <div class="feet">
-    <h5 style="text-align:center">Copyright © 2022 All Rights Reserved. Designed by <a href="">Hms devs</a> </h5>
+    <h5 style="text-align:center">Copyright © 2022 All Rights Reserved. Designed by <a href="">Kabelo</a> </h5>
     </div>
 
   </div>
