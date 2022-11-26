@@ -179,7 +179,7 @@ export default {
         // add procedure that add to log when one login
         // }
         // window.location.href = 'http://localhost:8080/#/user'
-        window.location.href = 'http://localhost:8080/#/user' // 'http://localhost:8080/#/user'
+        window.location.href = 'http://localhost:8080/#/user'// 'https://brajoecarwash.co.za/#/user' // 'http://localhost:8080/#/user'
       } else if (this.nextpage === 'wrong') {
         alert('wrong Password')
       } else if (networkcheck === false) {

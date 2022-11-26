@@ -48,6 +48,12 @@
                     <label for="surname">Surname</label>
                     <input type="text" v-model= "signsurname" id="surname" name="surname" required oninvalid="this.setCustomValidity('Enter Surname')" oninput="this.setCustomValidity('')">
 
+                    <label for="carname">Car Name</label>
+                    <input type="text" v-model= "signcarname" id="carname" name="carname" required oninvalid="this.setCustomValidity('Enter Car Name')" oninput="this.setCustomValidity('')">
+
+                    <label for="carreg">Car Registration</label>
+                    <input type="text" v-model= "signcarreg" id="carreg" name="carreg" required oninvalid="this.setCustomValidity('Enter registration')" oninput="this.setCustomValidity('')">
+
                     <label for="number">Cell Number</label>
                     <input type="text" v-model= "signnumber" id="number" name="number" required oninvalid="this.setCustomValidity('Enter Surname')" oninput="this.setCustomValidity('We will contact you if you forget something')">
 
@@ -89,6 +95,8 @@ export default {
       // Sign ub variables
       signname: '',
       signsurname: '',
+      signcarname: '',
+      signcarreg: '',
       signemail: '',
       signupPass: '',
       signupPassCon: '',
@@ -144,6 +152,8 @@ export default {
           await axios.post('https://kabelodatabase.herokuapp.com/register', {
             name: this.signname,
             surname: this.signsurname,
+            carname: this.signcarname,
+            carreg: this.signcarreg,
             email: this.signemail,
             password: this.signupPass,
             celnum: this.signnumber

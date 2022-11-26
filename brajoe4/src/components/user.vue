@@ -20,7 +20,7 @@
                 <img @click="removemenu" id="mobile-exit" class="mobile-menu-exit" src="../assets/exit.svg" alt="Close Navigation">
                 <ul class="primary-nav">
                     <li class="current"><a href="https://brajoecarwash.co.za/#/">Home</a></li>
-                    <li><a @click="toaccount()">Account</a></li>
+                    <!--<li><a @click="toaccount()">Account</a></li>-->
 
                 </ul>
 
@@ -37,38 +37,16 @@
             <div class="left-col">
                <!-- <p class="subhead">It's Nitty &amp; Gritty</p> -->
                <!-- <h1>Limited OFFER </h1> -->
-                <blockquote>{{signname}} {{signsurname}}</blockquote>
+                <h2>{{signname}} {{signsurname}}</h2>
+                <h2>You have 60 Points</h2>
 
-                <table>
-              <tr>
-                <th><h4>Car</h4></th>
-                <th><h4>Date</h4></th>
-              </tr>
-              <tr>
-                <td>
-                  <!--<a href="">Corolla</a>-->
-                  <h5>Corolla</h5>
-                </td>
-                <td>
-                  <h5>2022/02/12</h5>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <!--<a href="">Corolla</a>-->
-                  <h5>Corolla</h5>
-                </td>
-                <td>
-                  <h5>2022/02/12</h5>
-                </td>
-              </tr>
-
-              <!--<tr>
-                <td>
-                  <a href=""></a>
-                </td>
-              </tr>-->
-          </table>
+                <form id="registerid" onsubmit="return false">
+                  <div id="suggestions" class="suggestions">
+                    <label for="date">Add wash</label>
+                    <input  type= "date" v-model="date_" placeholder="yyyy-mm-dd" >
+                    <input id="sendesugg" type="button"  class="send-message-cta" value="Save" >
+                  </div>
+                </form>
                 <!--<blockquote>{{signsurname}}</blockquote>-->
                <!-- <p style="font-size:50px">&#128295;&#128296;&#128297;</p> -->
                <!-- <div class="heros-cta">
@@ -106,7 +84,9 @@ export default {
 
       signname: '',
       signsurname: '',
-      signemail: ''
+      signemail: '',
+
+      date_: ''
     }
   },
 
