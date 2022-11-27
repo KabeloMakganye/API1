@@ -71,6 +71,7 @@
 
 <script>
 import logi from '../components/user.vue'
+import swal from 'sweetalert'
 // import axios from 'axios'
 export default {
   components: { 'log-in': logi },
@@ -141,12 +142,14 @@ export default {
           }, (error) => {
             console.log(error)
             if (error.message === 'timeout exceeded') {
-              alert('Check your internet connections')
+              // alert('Check your internet connections')
+              swal('Check your internet connections', '', 'error')
               networkcheck = true
             }
           })
       } else {
-        alert('fill up everything')
+        // alert('fill up everything')
+        swal('Fill up everything', '', 'error')
       }
       if (this.nextpage === 'win') {
         await fetch(`https://kabelodatabase.herokuapp.com/get_user/${this.signemail}`)
@@ -179,11 +182,14 @@ export default {
         // add procedure that add to log when one login
         // }
         // window.location.href = 'http://localhost:8080/#/user'
-        window.location.href = 'http://localhost:8080/#/user'// 'https://brajoecarwash.co.za/#/user' // 'http://localhost:8080/#/user'
+        swal('', '', 'success')
+        window.location.href = 'https://brajoecarwash.co.za/#/user' // 'http://localhost:8080/#/user'
       } else if (this.nextpage === 'wrong') {
-        alert('wrong Password')
+        // alert('wrong Password')
+        swal('wrong Password', '', 'error')
       } else if (networkcheck === false) {
-        alert('invalid user')
+        // alert('invalid user')
+        swal('Invalid user', '', 'error')
       }
       document.getElementById('sendesugg').disabled = false
       document.getElementById('sendesugg').style.backgroundColor = '#31F300'

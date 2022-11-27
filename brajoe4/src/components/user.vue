@@ -38,12 +38,13 @@
                <!-- <p class="subhead">It's Nitty &amp; Gritty</p> -->
                <!-- <h1>Limited OFFER </h1> -->
                 <h2>{{signname}} {{signsurname}}</h2>
-                <h2>You have 60 Points</h2>
+                <h2>You have {{points}} Points</h2>
 
                 <form id="registerid" onsubmit="return false">
                   <div id="suggestions" class="suggestions">
                     <label for="date">Add wash</label>
-                    <input  type= "date" v-model="date_" placeholder="yyyy-mm-dd" >
+                    <input  type= "date" v-model="date_" placeholder="2022-11-26" > <br>
+
                     <input id="sendesugg" type="button"  class="send-message-cta" value="Save" >
                   </div>
                 </form>
@@ -85,6 +86,11 @@ export default {
       signname: '',
       signsurname: '',
       signemail: '',
+      signplate: '',
+      signcarname: '',
+      totatwashcount: 0,
+      washcount: 0,
+      points: 0,
 
       date_: ''
     }
@@ -152,6 +158,18 @@ export default {
     },
     async counts () {
       await fetch(`https://kabelodatabase.heroskuapp.com/fn_add_load/brajoe`)
+    },
+    async login () {
+      await fetch(`https://kabelodatabase.herokuapp.com/get_user/${this.signemail}`)
+        .then(response => response.json())
+        .then(results => (this.resultsFetched_3 = results))
+      this.signname = this.resultsFetched_3[0].name_
+      this.signsurname = this.resultsFetched_3[0].surname_
+      this.signplate = this.resultsFetched_3[0].platenum_
+      this.signcarname = this.resultsFetched_3[0].carname_
+      this.totatwashcount = this.resultsFetched_3[0].totatwashcount_
+      this.washcount = this.resultsFetched_3[0].washcount_
+      this.points = this.resultsFetched_3[0].points_
     }
   },
   mounted () {
@@ -164,6 +182,7 @@ export default {
       this.signname = this.getCookie('userbrajoe')
       this.signsurname = this.getCookie('surnamebrajoe')
       this.signemail = this.getCookie('emailbrajoe')
+      this.login()
     }
     // alert('welcome')
     // create a cookie that will help us coont number of page visits.

@@ -81,6 +81,7 @@
 
 <script>
 import axios from 'axios'
+import swal from 'sweetalert'
 export default {
   name: 'HelloWorld',
   data () {
@@ -160,15 +161,34 @@ export default {
           })
             .then((response) => {
               console.log(response)
-              alert(response.data)
+              // alert(response.data)
+              if (response.data === 'Invalid email') {
+                swal('Invalid email', '', 'error')
+              } else if (response.data === 'Something went wrong. please try again.') {
+                swal('Something went wrong', '', 'error')
+              } else if (response.data === 'user already registered') {
+                swal('User already registered', '', 'error')
+              } else {
+                swal('User registered, copy of login details sent to your email', '', 'success')
+                this.signname = ''
+                this.signsurname = ''
+                this.signcarname = ''
+                this.signcarreg = ''
+                this.signemail = ''
+                this.signupPass = ''
+                this.signnumber = ''
+                this.signupPassCon = ''
+              }
             }, (error) => {
               console.log(error)
             })
         } else {
-          alert('fill up everything')
+          // alert('fill up everything')
+          swal('fill up everything', '', 'error')
         }
       } else {
-        alert('Passwords are not the same')
+        // alert('Passwords are not the same')
+        swal('Passwords are not the same', '', 'error')
       }
       document.getElementById('sendesugg').disabled = false
       document.getElementById('sendesugg').style.backgroundColor = '#31F300'
