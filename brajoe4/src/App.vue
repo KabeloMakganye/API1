@@ -9,6 +9,13 @@
 
 <script>
 import foot from './components/foot.vue'
+import foot2 from './components/login.vue'
+import Cloudinary from 'cloudinary-vue'
+foot2.use(Cloudinary, {
+  configuration: {
+    cloudName: 'demo',
+    secure: true }
+})
 export default {
   components: { 'app-footer': foot },
   name: 'App'

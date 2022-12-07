@@ -53,8 +53,8 @@
            <!-- <img src="../assets/108487139-window-wash-1440.jpg" class="hero-img" alt="Illustration">-->
         </div>
     </section>
-        <section class="hero12">
-        <div class="container">
+        <!-- <section class="hero12">
+        <div class="container" id ="maindev">
             <div class="left-col">
               <img src="../assets/IMG_2436.jpg" width='100%' class="hero-img2" loading="lazy"  alt="Illustration">
             </DIV>
@@ -74,8 +74,36 @@
               <img src="../assets/IMG_1621.jpg" width='100%' class="hero-img2" loading="lazy"  alt="Illustration">
             </DIV>
         </div>
-    </section>
+    </section>-->
+    <div class="slideshow-container" id="kabelo">
+<div class="mySlides fade">
 
+  <img id="app2" src="../assets/IMG_1365.jpg" style="width:100%">
+
+</div>
+
+<!-- <div class="mySlides fade">
+
+  <img id="app2" src="../assets/IMG_2090.jpg" style="width:100%">
+
+</div>
+
+<div class="mySlides fade">
+
+  <img id="app2" src="../assets/IMG_1621.jpg" style="width:100%">
+
+</div> -->
+
+<a class="prev" @click="plusSlides(-1)">❮</a>
+<a class="next" @click="plusSlides(1)">❯</a>
+
+</div>
+
+<!-- <div style="text-align:center">
+  <span class="dot" @click="currentSlide(1)"></span>
+  <span class="dot" @click="currentSlide(2)"></span>
+  <span class="dot" @click="currentSlide(3)"></span>
+</div> -->
     <section class="features-section">
         <div class="container">
             <ul class="features-list">
@@ -159,7 +187,11 @@ export default {
       sugemail: '',
       sugmessage: '',
       resultsFetched_3: '',
-      atload: 0
+      atload: 0,
+      pictures: [],
+      picturelimit: 0,
+      n: '',
+      slideIndex: 1
     }
   },
 
@@ -167,6 +199,69 @@ export default {
     window.removeEventListener('resize', this.removemenu)
   }, */
   methods: {
+    plusSlides (n) {
+      this.showSlides(this.slideIndex += n)
+    },
+    currentSlide (n) {
+      this.showSlides(this.slideIndex = n)
+    },
+    showSlides (n) {
+      let i
+      let slides = document.getElementsByClassName('mySlides fade')
+      let dots = document.getElementsByClassName('dot')
+      if (n > slides.length) { this.slideIndex = 1 }
+      if (n < 1) { this.slideIndex = slides.length }
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = 'none'
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(' active', '')
+      }
+      slides[this.slideIndex - 1].style.display = 'block'
+      dots[this.slideIndex - 1].className += ' active'
+    },
+    setp (n) {
+
+    },
+    async loadpictures () {
+      await fetch(`https://kabelodatabase.herokuapp.com/get_all_pictures`)
+        .then(response => response.json())
+        .then(results => (this.pictures = results))
+      this.picturelimit = this.pictures.length
+      console.log(this.pictures.length)
+      for (let index = 0; index < this.picturelimit; index++) {
+        this.pictures[index].url_ = 'https://res.cloudinary.com/hzmda8arw/image/upload/' + this.pictures[index].url_.substring(0, this.pictures[index].url_.indexOf('@') - 1) + '/' + this.pictures[index].url_.substring(this.pictures[index].url_.indexOf('@') + 1, this.pictures[index].url_.length)
+        console.log(this.pictures[index].url_) // .[this.pictures[index].indexOf('@')] =
+
+        /* let div = document.createElement('div')
+        div.setAttribute('class', 'left-col')
+        div.setAttribute('id', 'abc')
+        document.getElementById('maindev').appendChild(div)
+
+        let elem = document.createElement('img')
+        elem.setAttribute('src', this.pictures[index].url_)
+        elem.setAttribute('class', 'hero-img2')
+        elem.setAttribute('loading', 'lazy')
+        document.getElementById('abc').appendChild(elem) */
+      }
+      for (let index = 0; index < this.picturelimit; index++) {
+        // this.pictures[index].url_ = 'https://res.cloudinary.com/hzmda8arw/image/upload/' + this.pictures[index].url_.substring(0, this.pictures[index].url_.indexOf('@') - 1) + '/' + this.pictures[index].url_.substring(this.pictures[index].url_.indexOf('@') + 1, this.pictures[index].url_.length)
+        // console.log(this.pictures[index].url_) // .[this.pictures[index].indexOf('@')] =
+
+        let div = document.createElement('div')
+        div.setAttribute('class', 'mySlides fade')
+        div.setAttribute('id', this.pictures[index].url_)
+        document.getElementById('kabelo').appendChild(div)
+
+        let elem = document.createElement('img')
+        elem.setAttribute('src', this.pictures[index].url_)
+        elem.setAttribute('style', 'width:100%')
+        document.getElementById(this.pictures[index].url_).appendChild(elem)
+      }
+    },
+    direct () {
+      window.location.href = 'https://kabelodatabase.herokuapp.com'
+    },
     addprice () {
       document.querySelector('nav').classList.add('menu-btn')
       document.getElementById('blur2').style.width = '100%'
@@ -231,9 +326,17 @@ export default {
     },
     async count () {
       await fetch(`https://kabelodatabase.herokuapp.com/fn_add_load/brajoe`)
+    },
+    rerun () {
+      setInterval(() => this.plusSlides(1), 5000)
     }
   },
+  beforeMount () {
+    this.rerun()
+  },
   mounted () {
+    this.loadpictures()
+    this.showSlides(this.slideIndex)
     window.addEventListener('resize', this.removemenu)
     // create a cookie that will help us coont number of page visits.
     let coo = ''
@@ -721,6 +824,96 @@ nav li a:hover {
   position: fixed;
   left: 30%;
   top: 20%;
+}
+
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  background-color: #31F300;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: #F0998B;
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
 }
 /*# sourceMappingURL=main.css.map */
 </style>

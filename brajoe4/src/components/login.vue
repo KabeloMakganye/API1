@@ -72,6 +72,7 @@
 <script>
 import logi from '../components/user.vue'
 import swal from 'sweetalert'
+import FormData from 'form-data'
 // import axios from 'axios'
 export default {
   components: { 'log-in': logi },
@@ -102,6 +103,32 @@ export default {
     window.removeEventListener('resize', this.removemenu)
   }, */
   methods: {
+    async submitFile () {
+      const axios = require('axios')
+      /*
+        Initialize the form data
+      */
+      let formData = new FormData()
+      /*
+        Add the form data we need to submit
+      */
+      formData.append('file', this.file, this.file.name)
+      console.log(formData)
+      /*
+      Make the request to the POST /single-file URL
+      */
+      await axios.post('http://localhost:3000/uploadpicture', {
+        name: formData
+      }).then(function () {
+        console.log('SUCCESS!!')
+      })
+        .catch(function () {
+          console.log('FAILURE!!')
+        })
+    },
+    handleFileUpload () {
+      this.file = this.$refs.file.files[0]
+    },
     addprice () {
       document.querySelector('nav').classList.add('menu-btn')
       document.getElementById('blur2').style.width = '100%'
@@ -182,7 +209,10 @@ export default {
         // add procedure that add to log when one login
         // }
         // window.location.href = 'http://localhost:8080/#/user'
-        swal('', '', 'success')
+        swal('', 'Welcome', 'success', {
+          buttons: false,
+          timer: 3000
+        })
         window.location.href = 'https://brajoecarwash.co.za/#/user' // 'http://localhost:8080/#/user'
       } else if (this.nextpage === 'wrong') {
         // alert('wrong Password')

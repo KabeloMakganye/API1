@@ -25,6 +25,8 @@
                 </ul>
 
                 <ul class="secondary-nav">
+                  <!-- <input id="sendesuggs" type="button" @click="direct" class="send-message-cta" value="Upload Image"> -->
+                    <li><a @click="direct" href="#">Upload Image</a></li>
                     <li><a href="#">Contact</a></li>
                     <li class="go-premium-cta"><a @click="logout">Logout</a></li>
                 </ul>
@@ -43,7 +45,7 @@
                 <form id="registerid" onsubmit="return false">
                   <div id="suggestions" class="suggestions">
                     <label for="date">Add wash</label>
-                    <input  type= "date" v-model="date_" placeholder="2022-11-26" > <br>
+                    <input  type= "date" id="myDate" v-model="date_" min="2022-11-26" max="2022-11-26" required pattern="\d{4}-\d{2}-\d{2}"> <br>
 
                     <input id="sendesugg" type="button"  class="send-message-cta" value="Save" >
                   </div>
@@ -68,6 +70,7 @@
 
 <script>
 import acc from '../components/account.vue'
+import swal from 'sweetalert'
 export default {
   components: { 'acc-nt': acc },
   props: ['username', 'usersurname'],
@@ -100,6 +103,9 @@ export default {
     window.removeEventListener('resize', this.removemenu)
   },
   methods: {
+    direct () {
+      window.location.href = 'https://kabelodatabase.herokuapp.com'
+    },
     checksession () {
       if (this.getCookie('userbrajoe') === 'none') {
         alert('Session expired, login again')
@@ -170,12 +176,54 @@ export default {
       this.totatwashcount = this.resultsFetched_3[0].totatwashcount_
       this.washcount = this.resultsFetched_3[0].washcount_
       this.points = this.resultsFetched_3[0].points_
+      var d = new Date()
+      var dmax = new Date()
+      d.setTime(d.getTime() - (7 * 24 * 60 * 60 * 1000))
+      dmax.setTime(dmax.getTime())
+      var month = d.getMonth() + 1
+      var year = d.getFullYear()
+      var day = d.getDate()
+
+      var maxmonth = dmax.getMonth() + 1
+      var maxyear = dmax.getFullYear()
+      var maxday = dmax.getDate()
+      if (month < 10) {
+        if (day < 10) {
+          document.getElementById('myDate').min = year + '-0' + month + '-0' + day
+        } else {
+          document.getElementById('myDate').min = year + '-0' + month + '-' + day
+        }
+      } else {
+        if (day < 10) {
+          document.getElementById('myDate').min = year + '-' + month + '-0' + day
+        } else {
+          document.getElementById('myDate').min = year + '-' + month + '-' + day
+        }
+      }
+
+      if (maxmonth < 10) {
+        if (maxday < 10) {
+          document.getElementById('myDate').max = maxyear + '-0' + maxmonth + '-0' + maxday
+        } else {
+          document.getElementById('myDate').max = maxyear + '-0' + maxmonth + '-' + maxday
+        }
+      } else {
+        if (maxday < 10) {
+          document.getElementById('myDate').max = maxyear + '-' + maxmonth + '-0' + maxday
+        } else {
+          document.getElementById('myDate').max = maxyear + '-' + maxmonth + '-' + maxday
+        }
+      }
     }
   },
   mounted () {
     window.addEventListener('resize', this.removemenu)
     if (this.getCookie('userbrajoe') === 'none') {
-      alert('Session expired, login again')
+      // alert('Session expired, login again')
+      swal('', 'Session expired, login again', 'error', {
+        buttons: false,
+        timer: 3000
+      })
       // window.location.replace('http://localhost:8080/#/login')
       window.location.replace('https://brajoecarwash.co.za/#/login') // 'http://localhost:8080/#/login'
     } else {
