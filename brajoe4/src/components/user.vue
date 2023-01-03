@@ -39,15 +39,20 @@
             <div class="left-col">
                <!-- <p class="subhead">It's Nitty &amp; Gritty</p> -->
                <!-- <h1>Limited OFFER </h1> -->
-                <h2>{{signname}} {{signsurname}}</h2>
+                <h2>{{signname}}</h2>
                 <h2>You have {{points}} Points</h2>
 
                 <form id="registerid" onsubmit="return false">
                   <div id="suggestions" class="suggestions">
                     <label for="date">Add wash</label>
+                    <select id="cars" name="cars" v-model="selectedcar">
+                      <option  value="" disabled selected hidden  >Choose a car</option>
+                      <option v-for="n in lim" :key= "n">{{ signcarname[n-1] }}</option>
+                    </select><br>
+
                     <input  type= "date" id="myDate" v-model="date_" min="2022-11-26" max="2022-11-26" required pattern="\d{4}-\d{2}-\d{2}"> <br>
 
-                    <input id="sendesugg" type="button"  class="send-message-cta" value="Save" >
+                    <input id="sendesugg" type="button" @click="addwash"  class="send-message-cta" value="Save" >
                   </div>
                 </form>
                 <!--<blockquote>{{signsurname}}</blockquote>-->
@@ -63,7 +68,7 @@
         </div>
     </section>
         <div class="feet">
-    <h5 style="text-align:center">Copyright © 2022 All Rights Reserved. Designed by <a href="">car wash</a> </h5>
+    <h5 style="text-align:center">Copyright © 2023 All Rights Reserved. Designed by <a href="">car wash</a> </h5>
     </div>
   </div>
 </template>
@@ -83,19 +88,22 @@ export default {
       sugemail: '',
       sugmessage: '',
       resultsFetched_3: '',
+      resultsFetched_4: '',
       atload: 0,
       nextpage: '',
 
+      signcarid: [],
       signname: '',
       signsurname: '',
       signemail: '',
       signplate: '',
-      signcarname: '',
+      signcarname: [],
       totatwashcount: 0,
       washcount: 0,
       points: 0,
-
-      date_: ''
+      lim: 0,
+      date_: '',
+      selectedcar: ''
     }
   },
 
@@ -103,8 +111,51 @@ export default {
     window.removeEventListener('resize', this.removemenu)
   },
   methods: {
+    async addwash () {
+      document.getElementById('sendesugg').disabled = true
+      document.getElementById('sendesugg').style.backgroundColor = '#F0998B'
+      if (this.selectedcar.length > 0) {
+        for (let index = 0; index < this.lim; index++) {
+          if (this.selectedcar === this.signcarname[index]) {
+            let allAreFilled = true /* check if all required fields are entered */
+            document.getElementById('suggestions').querySelectorAll('[required]').forEach(function (i) {
+              if (!allAreFilled) return
+              if (!i.value) allAreFilled = false
+            })
+            if (allAreFilled) {
+              await fetch(`https://kabelodatabase.herokuapp.com/fn_add_wash/${this.date_}/${this.signcarid[index]}`)
+                .then(response => response.json())
+                .then(results => (this.resultsFetched_5 = results))
+              if (this.resultsFetched_5[0].fn_add_wash === 0) {
+                swal('wash already added', '', 'warning', {
+                  buttons: false,
+                  timer: 1000
+                })
+              } else {
+                swal('Saved', '', 'success', {
+                  buttons: false,
+                  timer: 1000
+                })
+              }
+            } else {
+              swal('Select date', '', 'error', {
+                buttons: false,
+                timer: 1000
+              })
+            }
+          }
+        }
+      } else {
+        swal('Select a car', '', 'error', {
+          buttons: false,
+          timer: 1000
+        })
+      }
+      document.getElementById('sendesugg').disabled = false
+      document.getElementById('sendesugg').style.backgroundColor = '#31F300'
+    },
     direct () {
-      window.location.href = 'https://kabelodatabase.herokuapp.com'
+      window.location.href = `https://kabelodatabase.herokuapp.com/jdndgskdjfhjhsdfbisfdhifhsdfhsdjsdjfhsjhdfkshdjksdhfhsdflsefsdklfjiieislx/${this.signname}`
     },
     checksession () {
       if (this.getCookie('userbrajoe') === 'none') {
@@ -169,10 +220,14 @@ export default {
       await fetch(`https://kabelodatabase.herokuapp.com/get_user/${this.signemail}`)
         .then(response => response.json())
         .then(results => (this.resultsFetched_3 = results))
+      this.lim = this.resultsFetched_3.length
       this.signname = this.resultsFetched_3[0].name_
       this.signsurname = this.resultsFetched_3[0].surname_
       this.signplate = this.resultsFetched_3[0].platenum_
-      this.signcarname = this.resultsFetched_3[0].carname_
+      for (let index = 0; index < this.lim; index++) {
+        this.signcarname[index] = this.resultsFetched_3[index].carname_
+        this.signcarid[index] = this.resultsFetched_3[index].ucid_
+      }
       this.totatwashcount = this.resultsFetched_3[0].totatwashcount_
       this.washcount = this.resultsFetched_3[0].washcount_
       this.points = this.resultsFetched_3[0].points_
@@ -416,7 +471,7 @@ label {
   margin-bottom: .5em;
 }
 
-input, textarea {
+input, textarea, select {
   width: 100%;
   padding: .8em;
   margin-bottom: 1em;

@@ -79,7 +79,7 @@
 <div class="mySlides fade">
 
   <img id="app2" src="../assets/IMG_1365.jpg" style="width:100%">
-
+  <div class="text"><cite>By Kabelo</cite></div>
 </div>
 
 <!-- <div class="mySlides fade">
@@ -94,8 +94,8 @@
 
 </div> -->
 
-<a class="prev" @click="plusSlides(-1)">❮</a>
-<a class="next" @click="plusSlides(1)">❯</a>
+<a class="prev" @click="clearIntervals();plusSlides(-1);">❮</a>
+<a class="next" @click="clearIntervals();plusSlides(1);">❯</a>
 
 </div>
 
@@ -189,9 +189,11 @@ export default {
       resultsFetched_3: '',
       atload: 0,
       pictures: [],
+      picturesby: [],
       picturelimit: 0,
       n: '',
-      slideIndex: 1
+      slideIndex: 1,
+      time: ''
     }
   },
 
@@ -199,6 +201,10 @@ export default {
     window.removeEventListener('resize', this.removemenu)
   }, */
   methods: {
+    clearIntervals () {
+      clearInterval(this.time)
+      this.time = setInterval(() => this.plusSlides(1), 10000)
+    },
     plusSlides (n) {
       this.showSlides(this.slideIndex += n)
     },
@@ -228,11 +234,9 @@ export default {
         .then(response => response.json())
         .then(results => (this.pictures = results))
       this.picturelimit = this.pictures.length
-      console.log(this.pictures.length)
       for (let index = 0; index < this.picturelimit; index++) {
         this.pictures[index].url_ = 'https://res.cloudinary.com/hzmda8arw/image/upload/' + this.pictures[index].url_.substring(0, this.pictures[index].url_.indexOf('@') - 1) + '/' + this.pictures[index].url_.substring(this.pictures[index].url_.indexOf('@') + 1, this.pictures[index].url_.length)
-        console.log(this.pictures[index].url_) // .[this.pictures[index].indexOf('@')] =
-
+        this.picturesby[index] = this.pictures[index].by_
         /* let div = document.createElement('div')
         div.setAttribute('class', 'left-col')
         div.setAttribute('id', 'abc')
@@ -257,6 +261,19 @@ export default {
         elem.setAttribute('src', this.pictures[index].url_)
         elem.setAttribute('style', 'width:100%')
         document.getElementById(this.pictures[index].url_).appendChild(elem)
+
+        let elem2 = document.createElement('div')
+        elem2.setAttribute('class', 'text')
+        elem2.setAttribute('id', this.pictures[index].url_ + this.picturesby[index])
+        // elem2.setAttribute('textContent', this.picturesby[index])
+        document.getElementById(this.pictures[index].url_).appendChild(elem2)
+
+        let elem3 = document.createElement('cite')
+        elem3.setAttribute('id', this.pictures[index].url_ + this.picturesby[index] + index)
+        // elem2.setAttribute('textContent', this.picturesby[index])
+        document.getElementById(this.pictures[index].url_ + this.picturesby[index]).appendChild(elem3)
+
+        document.getElementById(this.pictures[index].url_ + this.picturesby[index] + index).innerText = 'By ' + this.picturesby[index]
       }
     },
     direct () {
@@ -328,7 +345,7 @@ export default {
       await fetch(`https://kabelodatabase.herokuapp.com/fn_add_load/brajoe`)
     },
     rerun () {
-      setInterval(() => this.plusSlides(1), 5000)
+      this.time = setInterval(() => this.plusSlides(1), 5000)
     }
   },
   beforeMount () {
@@ -336,7 +353,6 @@ export default {
   },
   mounted () {
     this.loadpictures()
-    this.showSlides(this.slideIndex)
     window.addEventListener('resize', this.removemenu)
     // create a cookie that will help us coont number of page visits.
     let coo = ''
@@ -352,13 +368,14 @@ export default {
       }
     }
     if (coo.length <= 1) {
+      this.count()
       const d = new Date()
       d.setTime(d.getTime() + (1 * 24 * 60 * 60 * 1000))
       d.setUTCHours(0, 0, 0)
       let expires = 'expires=' + d.toUTCString()
       document.cookie = 'logsbrajoe' + '=' + 'brajoecarwash' + ';' + expires + ';path=/'
-      this.count()
     }
+    this.showSlides(this.slideIndex)
   }
 }
 </script>
@@ -866,18 +883,19 @@ img {vertical-align: middle;}
 
 /* Caption text */
 .text {
-  color: #f2f2f2;
+  font-weight: bold;
+  color: #31F300;
   font-size: 15px;
   padding: 8px 12px;
   position: absolute;
   bottom: 8px;
-  width: 100%;
-  text-align: center;
+  width: 80%;
+  text-align: right
 }
 
 /* Number text (1/3 etc) */
 .numbertext {
-  color: #f2f2f2;
+  color: #000000;
   font-size: 12px;
   padding: 8px 12px;
   position: absolute;
