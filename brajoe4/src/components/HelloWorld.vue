@@ -15,7 +15,6 @@
     <div class="navbar">
         <div class="container">
             <a class="logo" href="#">BRA JOE<span> CarWash</span></a>
-
             <img @click="addmenu"  class="mobile-menu" src="../assets/menu.svg" alt="Open Navigation">
             <nav id="mysidebar">
                 <img @click="removemenu" id="mobile-exit" class="mobile-menu-exit" src="../assets/exit.svg" alt="Close Navigation">

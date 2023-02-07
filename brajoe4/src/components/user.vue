@@ -27,14 +27,16 @@
                 <ul class="secondary-nav">
                   <!-- <input id="sendesuggs" type="button" @click="direct" class="send-message-cta" value="Upload Image"> -->
                     <li><a @click="direct" href="#">Upload Image</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <!-- <li><a href="#">Contact</a></li> -->
+                    <!-- <li id="homebooking" ><a  @click="history(2)">History</a></li>
+                    <li id="infodata" style="display: none;"><a  @click="history(1)">add wash</a></li> -->
                     <li class="go-premium-cta"><a @click="logout">Logout</a></li>
                 </ul>
             </nav>
         </div>
     </div>
 
-    <section class="heros">
+    <section id="book" class="heros">
         <div class="container">
             <div class="left-col">
                <!-- <p class="subhead">It's Nitty &amp; Gritty</p> -->
@@ -67,6 +69,25 @@
            <!-- <img src="../assets/108487139-window-wash-1440.jpg" class="heros-img" alt="Illustration">-->
         </div>
     </section>
+
+    <!-- <section id="book2" style="display: none;" class="hero2">
+        <div class="container">
+            <div class="left-col">
+                <table>
+                  <tr>
+                    <th>Description</th>
+                    <th>Date</th>
+                    <th>Delete</th>
+                  </tr>
+                  <tr v-for="n in lim" :key= "n">
+                    <td>{{BookingsArr[n-1]}}</td>
+                    <td>{{BookingDates[n-1]}}</td>
+                   <td><img @click="deleterecord(n-1)" height="40%" width="40%" src="../assets/icons8-trash-100.png" ></td
+                  </tr>
+                </table>
+            </div>
+        </div>
+    </section> -->
         <div class="feet">
     <h5 style="text-align:center">Copyright © 2023 All Rights Reserved. Designed by <a href="">car wash</a> </h5>
     </div>
@@ -111,6 +132,25 @@ export default {
     window.removeEventListener('resize', this.removemenu)
   },
   methods: {
+    history (n) {
+      swal('Loading', '', 'success', {
+        buttons: false,
+        timer: 1000
+      })
+      this.removemenu()
+      // this.loadhistory()
+      if (n === 1) {
+        document.getElementById('book2').style.display = 'none'
+        document.getElementById('book').style.display = 'inline'
+        document.getElementById('infodata').style.display = 'none'
+        document.getElementById('homebooking').style.display = 'inline'
+      } else {
+        document.getElementById('book2').style.display = 'inline'
+        document.getElementById('book').style.display = 'none'
+        document.getElementById('infodata').style.display = 'inline'
+        document.getElementById('homebooking').style.display = 'none'
+      }
+    },
     async addwash () {
       document.getElementById('sendesugg').disabled = true
       document.getElementById('sendesugg').style.backgroundColor = '#F0998B'
@@ -231,6 +271,8 @@ export default {
       this.totatwashcount = this.resultsFetched_3[0].totatwashcount_
       this.washcount = this.resultsFetched_3[0].washcount_
       this.points = this.resultsFetched_3[0].points_
+      console.log(this.resultsFetched_3)
+      console.log(this.resultsFetched_3[0].points_)
       var d = new Date()
       var dmax = new Date()
       d.setTime(d.getTime() - (7 * 24 * 60 * 60 * 1000))
