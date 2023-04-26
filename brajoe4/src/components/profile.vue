@@ -27,7 +27,7 @@
                 <ul class="secondary-nav">
                   <!-- <input id="sendesuggs" type="button" @click="direct" class="send-message-cta" value="Upload Image"> -->
                     <li><a @click="direct" href="#">Upload Image</a></li>
-                    <li><a @click="directto('profile')">Profile</a></li>
+                    <li><a @click="directto('user')">Main page</a></li>
                     <!-- <li><a href="#">Contact</a></li> -->
                     <!-- <li id="homebooking" ><a  @click="history(2)">History</a></li>
                     <li id="infodata" style="display: none;"><a  @click="history(1)">add wash</a></li> -->
@@ -36,41 +36,36 @@
             </nav>
         </div>
     </div>
-
-    <section id="book" class="heros">
+    <section class="heros">
         <div class="container">
             <div class="left-col">
-               <!-- <p class="subhead">It's Nitty &amp; Gritty</p> -->
-               <!-- <h1>Limited OFFER </h1> -->
-                <h2>{{signname}}</h2>
-                <h2>You have {{points}} Points</h2>
-
-                <form id="registerid" onsubmit="return false">
-                  <div id="suggestions" class="suggestions">
-                    <label for="date">Add wash</label>
-                    <select id="cars" name="cars" v-model="selectedcar">
-                      <option  value="" disabled selected hidden  >Choose a car</option>
-                      <option v-for="n in lim" :key= "n">{{ signcarname[n-1] }}</option>
-                    </select><br>
-
-                    <input  type= "date" id="myDate" v-model="date_" min="2022-11-26" max="2022-11-26" required pattern="\d{4}-\d{2}-\d{2}"> <br>
-
-                    <input id="sendesugg" type="button" @click="addwash"  class="send-message-cta" value="Save" >
-                  </div>
-                </form>
-                <!--<blockquote>{{signsurname}}</blockquote>-->
-               <!-- <p style="font-size:50px">&#128295;&#128296;&#128297;</p> -->
-               <!-- <div class="heros-cta">
-                    <a href="#" class="primary-cta">Try for free</a>
-                    <a href="#" class="watch-video-cta">
-                        <img src="../assets/watch.svg" alt="Watch a video">Watch a video
-                    </a>
-                </div> -->
+                <table>
+                  <tr>
+                    <th>Date</th>
+                    <th>Amount</th>
+                  </tr>
+                  <tr v-for="n in booksize" :key= "n">
+                    <td>{{dates[n-1]}}</td>
+                    <td>R{{amounts[n-1]}}</td>
+                    <td><img @click="deleterecord(n-1)" height="40%" width="40%" src="../assets/icons8-trash-100.png" ></td>
+                  </tr>
+                  <tr v-if="booksize == 0" >
+                    <td>no record</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <input  type= "date" id="myDate" v-model="bookdate_" min="2022-11-26" max="2022-11-26" required pattern="\d{4}-\d{2}-\d{2}"> <br>
+                    </td>
+                    <td>
+                      <input type="number" v-model="bookamount_">
+                    </td>
+                  </tr>
+                </table>
+                <input id="sendesugg2" type="button" @click="newrecord"  value="Save Record" >
             </div>
-           <!-- <img src="../assets/108487139-window-wash-1440.jpg" class="heros-img" alt="Illustration">-->
         </div>
     </section>
-
     <!-- <section id="book2" style="display: none;" class="hero2">
         <div class="container">
             <div class="left-col">
@@ -111,6 +106,12 @@ export default {
       sugmessage: '',
       resultsFetched_3: '',
       resultsFetched_4: '',
+      resultsFetched_5: '',
+      booksize: '-5',
+      dates: [],
+      amounts: [],
+      bookdate_: '',
+      bookamount_: '',
       atload: 0,
       nextpage: '',
 
@@ -133,8 +134,43 @@ export default {
     window.removeEventListener('resize', this.removemenu)
   },
   methods: {
+    async getbook () {
+      await fetch(`https://kabelodatabase.herokuapp.com/get_book`)
+        .then(response => response.json())
+        .then(results => (this.resultsFetched_5 = results))
+      this.booksize = this.resultsFetched_5.length
+      for (let x = 0; x < this.resultsFetched_5.length; x++) {
+        this.dates[x] = this.resultsFetched_5[x].date_
+        this.amounts[x] = this.resultsFetched_5[x].amount_
+      }
+    },
     directto (n) {
       window.location.href = `https://brajoecarwash.co.za/#/${n}` // 'http://localhost:8080/#/user'
+    },
+    deleterecord (n) {
+      swal('Delete Coming Soon', '', 'success', {
+        buttons: false,
+        timer: 3000
+      })
+    },
+    async newrecord () {
+      if (this.bookdate_.length > 0 && this.bookamount_.length > 0) {
+        await fetch(`https://kabelodatabase.herokuapp.com/fn_add_book/${this.bookdate_}/${this.bookamount_}`)
+          .then(response => response.json())
+          .then(results => (this.resultsFetched_5 = results))
+        if (this.resultsFetched_5[0].fn_add_book === 1) {
+          swal('Date already added', '', 'warning', {
+            buttons: false,
+            timer: 1000
+          })
+        } else {
+          swal('Saved', '', 'success', {
+            buttons: false,
+            timer: 1000
+          })
+        }
+        this.getbook()
+      }
     },
     history (n) {
       swal('Loading', '', 'success', {
@@ -335,6 +371,7 @@ export default {
       this.signsurname = this.getCookie('surnamebrajoe')
       this.signemail = this.getCookie('emailbrajoe')
       this.login()
+      this.getbook()
     }
     // alert('welcome')
     // create a cookie that will help us coont number of page visits.
@@ -343,7 +380,7 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style>
+<style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
 :root {
   --primary-color: #31F300;
@@ -788,6 +825,20 @@ nav li a:hover {
   position: fixed;
   left: 30%;
   top: 20%;
+}
+table {
+  border-collapse: collapse;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+    font-size: 16px;
+  font-family: 'Indie Flower';
+}
+
+tr:nth-child(even) {
+  background-color: #D6EEEE;
 }
 /*# sourceMappingURL=main.css.map */
 </style>

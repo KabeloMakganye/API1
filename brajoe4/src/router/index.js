@@ -6,6 +6,7 @@ import signup from '@/components/signup'
 import login from '@/components/login'
 import user from '@/components/user'
 import account from '@/components/account'
+import profile from '@/components/profile'
 
 Vue.use(Router)
 
@@ -40,6 +41,11 @@ export default new Router({
       path: '/account',
       name: 'account',
       component: account
+    },
+    {
+      path: '/profile',
+      name: 'profile',
+      component: profile
     }
   ]
 })
