@@ -14,44 +14,24 @@
   </div> -->
     <div class="navbar">
         <div class="container">
-            <a class="logo" href="#">BRA JOE<span> CarWash</span></a>
+            <a class="logo" href="#">SOLAR INSTALL</a>
             <img @click="addmenu"  class="mobile-menu" src="../assets/menu.svg" alt="Open Navigation">
             <nav id="mysidebar">
                 <img @click="removemenu" id="mobile-exit" class="mobile-menu-exit" src="../assets/exit.svg" alt="Close Navigation">
-                <ul class="primary-nav">
-                    <li class="current"><a href="#">Home</a></li>
+                <!-- <ul class="primary-nav">
                     <li><a href="#">Features</a></li>
                     <li><a href="#" @click="addprice">Pricing</a></li>
-                </ul>
+                </ul> -->
 
                 <ul class="secondary-nav">
                     <li><a href="#">Contact</a></li>
-                    <li class="go-premium-cta"><a href="https://brajoecarwash.co.za/#/login">Log in</a></li>
-                    <li class="go-premium-cta"><a href="https://brajoecarwash.co.za/#/signup">Sign up</a></li>
+                    <!-- li class="go-premium-cta"><a href="https://brajoecarwash.co.za/#/login">Log in</a></li>
+                    <li class="go-premium-cta"><a href="https://brajoecarwash.co.za/#/signup">Sign up</a></li> -->
                 </ul>
             </nav>
         </div>
     </div>
 
-    <section class="hero">
-        <div class="container">
-            <div class="left-col">
-               <!-- <p class="subhead">It's Nitty &amp; Gritty</p> -->
-               <!-- <h1>Limited OFFER </h1> -->
-                <h4></h4>
-                <blockquote>"Ain't too clean till it squeaks! We scrub your car shine! Wax, rinse,go!"</blockquote>
-                    <cite>-BRA JOE</cite>
-               <!-- <p style="font-size:50px">&#128295;&#128296;&#128297;</p> -->
-               <!-- <div class="hero-cta">
-                    <a href="#" class="primary-cta">Try for free</a>
-                    <a href="#" class="watch-video-cta">
-                        <img src="../assets/watch.svg" alt="Watch a video">Watch a video
-                    </a>
-                </div> -->
-            </div>
-           <!-- <img src="../assets/108487139-window-wash-1440.jpg" class="hero-img" alt="Illustration">-->
-        </div>
-    </section>
         <!-- <section class="hero12">
         <div class="container" id ="maindev">
             <div class="left-col">
@@ -77,25 +57,12 @@
     <div class="slideshow-container" id="kabelo">
 <div class="mySlides fade">
 
-  <img id="app2" src="../assets/IMG_1365.jpg" style="width:100%">
-  <div class="text"><cite>By Kabelo</cite></div>
+  <img id="app2" src="../assets/justin-lim-Fpcy-AdFhUg-unsplash.jpg" style="width:100%">
 </div>
-
-<!-- <div class="mySlides fade">
-
-  <img id="app2" src="../assets/IMG_2090.jpg" style="width:100%">
-
-</div>
-
 <div class="mySlides fade">
 
-  <img id="app2" src="../assets/IMG_1621.jpg" style="width:100%">
-
-</div> -->
-
-<a class="prev" @click="clearIntervals();plusSlides(-1);">❮</a>
-<a class="next" @click="clearIntervals();plusSlides(1);">❯</a>
-
+<img id="app2" src="../assets/raze-solar-Q8V1EEvnJgk-unsplash.jpg" style="width:100%">
+</div>
 </div>
 
 <!-- <div style="text-align:center">
@@ -103,19 +70,6 @@
   <span class="dot" @click="currentSlide(2)"></span>
   <span class="dot" @click="currentSlide(3)"></span>
 </div> -->
-    <section class="features-section">
-        <div class="container">
-            <ul class="features-list">
-                <li>Car Waxing</li>
-                <li>Vehicle interior vacuuming</li>
-                <li>Full Body Wash</li>
-                <li>Engine cleaning</li>
-            </ul>
-
-           <!-- <img src="../assets/holding-phone.jpg" alt="Man holding phone"> -->
-        </div>
-    </section>
-
    <!-- <section class="testimonials-section">
         <div class="container">
             <ul>
@@ -161,15 +115,15 @@
                   </div>
                 </form>
             </div>
-            <div class="contact-right">
+            <!-- <div class="contact-right">
 <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d706.4003803323423!2d28.099735019504372!3d-25.579115927241748!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x1824186fdf08ed66!2sBrajoes%20car%20wash!5e1!3m2!1sen!2sza!4v1655380638616!5m2!1sen!2sza" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
+            </div> -->
 
         </div>
     </section>
-            <div class="foots">
+            <!-- <div class="foots">
     <app-footer/>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -247,7 +201,7 @@ export default {
         elem.setAttribute('loading', 'lazy')
         document.getElementById('abc').appendChild(elem) */
       }
-      for (let index = 0; index < this.picturelimit; index++) {
+      /* for (let index = 0; index < this.picturelimit; index++) {
         // this.pictures[index].url_ = 'https://res.cloudinary.com/hzmda8arw/image/upload/' + this.pictures[index].url_.substring(0, this.pictures[index].url_.indexOf('@') - 1) + '/' + this.pictures[index].url_.substring(this.pictures[index].url_.indexOf('@') + 1, this.pictures[index].url_.length)
         // console.log(this.pictures[index].url_) // .[this.pictures[index].indexOf('@')] =
 
@@ -273,7 +227,7 @@ export default {
         document.getElementById(this.pictures[index].url_ + this.picturesby[index]).appendChild(elem3)
 
         document.getElementById(this.pictures[index].url_ + this.picturesby[index] + index).innerText = 'By ' + this.picturesby[index]
-      }
+      } */
     },
     direct () {
       window.location.href = 'https://kabelodatabase.herokuapp.com'
@@ -394,7 +348,7 @@ export default {
    font-size: 1.0em;
 }
 body {
-  background: #9DF8B0;
+  background: rgb(255,255,255);
   margin: 0;
   font-family: 'Poppins';
 }
@@ -446,9 +400,12 @@ section {
 }
 
 .hero {
-  text-align: center;
-      background:url('../assets/108487139-window-wash-1440.jpg');
+  /* text-align: center; */
+      background:url('../assets/soren-h-1PKAYeA_nZ4-unsplash.jpg');
       background-image-opacity: 0.2;
+      background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
 }
 .hero12 {
   text-align: center;
@@ -920,7 +877,7 @@ img {vertical-align: middle;}
 /* Fading animation */
 .fade {
   animation-name: fade;
-  animation-duration: 1.5s;
+  animation-duration: 3s;
 }
 
 @keyframes fade {
