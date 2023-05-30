@@ -1,5 +1,6 @@
 <template @resize="removemenu">
-  <div class="hello"  @resize="removemenu">
+  <div class="hello" id="page-container"  @resize="removemenu">
+    <div id="content-wrap">
   <div @click="removemenu" class="blur" id="blur"></div>
   <!-- <div @click="removemenu" class="blur2" id="blur2"></div>
 
@@ -21,12 +22,15 @@
                 <img @click="removemenu" id="mobile-exit" class="mobile-menu-exit" src="../assets/exit.svg" alt="Close Navigation">
                 <ul class="primary-nav">
                     <!-- <li class="current"><a href="#">Home</a></li>n-->
-                    <li><a href="https://everythinghooked.web.app/#/orders">Orders</a></li>
-                    <li><a href="#" @click="addprice">Pricing</a></li>
+                    <li><a href="https://everythinghooked.web.app/#/orders" title="Cart"><img title="Cart" id="blackcart" class="blackcart" src="../assets/icons8-shopping-cart-20.png" alt="Cart"></a></li>
+                    <li><a href="#" @click="addprice">My Account</a></li>
                 </ul>
 
                 <ul class="secondary-nav">
                     <!--<li><a href="#">Contact</a></li>-->
+                    <li class="go-premium-cta"><a href="#">Log in</a></li>
+                    <li class="go-premium-cta"><a href="#">Sign up</a></li>
+                    <li><a href="https://everythinghooked.web.app/#/orders">Orders</a></li>
                     <li>
                       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
                       <div class="navin">
@@ -45,6 +49,7 @@
                           <a href="tel:+27608581873" target="_blank" ><span class="fa fa-phone"></span></a>
                         </div>
                       </li>
+                      <li><a href="#">Help</a></li>
                      <!-- <li class="go-premium-cta"><a href="#">Log in</a></li>
                     <li class="go-premium-cta"><a href="https://brajoecarwash.co.za/#/signup">Sign up</a></li>-->
                 </ul>
@@ -57,7 +62,7 @@
                <!-- <p class="subhead">It's Nitty &amp; Gritty</p> -->
                <!-- <h1>Limited OFFER </h1> -->
                 <h4></h4>
-                <blockquote>"COMING SOON"</blockquote>
+                <blockquote>"Discover stylish and comfortable clothing at Everything Hooked - your go-to online store for fashion that's both affordable and high-quality."</blockquote>
                     <cite>- Noko</cite>
                <!-- <p style="font-size:50px">&#128295;&#128296;&#128297;</p> -->
                <!-- <div class="hero-cta">
@@ -70,6 +75,45 @@
            <!-- <img src="../assets/108487139-window-wash-1440.jpg" class="hero-img" alt="Illustration">-->
         </div>
     </section>
+   <section class="hero12">
+    <div class="w3-quarter">
+      <img src="https://res.cloudinary.com/hzmda8arw/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1678173554/12C82C84-1245-4F2D-8FAE-4B4A61228C41.jpg" alt="" style="width:100%">
+      <h3>From R250</h3>
+      <p>Custom made jersy. That Promises to keep you warm.</p>
+    </div>
+    <div class="w3-quarter">
+      <img src="https://res.cloudinary.com/hzmda8arw/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1678174229/2A221651-4DC7-490D-8309-4FAD624E9493.jpg" alt="" style="width:100%">
+      <h3>from R160</h3>
+      <p>Beanie. Choose your colours</p>
+    </div>
+  </section>
+
+  <section class="hero123">
+        <div class="container">
+            <div class="left-col">
+               <!-- <p class="subhead">It's Nitty &amp; Gritty</p> -->
+               <!-- <h1>Limited OFFER </h1> -->
+                <h4></h4>
+                <blockquote class="message">"Welcome to Everything Hooked, the ultimate destination for fashionable and comfortable clothing that is sure to keep you hooked! We are thrilled to have you here and can't wait to show you our extensive collection of high-quality apparel.
+
+At Everything Hooked, we believe that fashion should be fun, comfortable, and affordable. That's why we offer a wide variety of styles, sizes, and colors to suit every taste and occasion. We've got you covered.
+
+As a customer of Everything Hooked, you can expect excellent customer service, fast shipping, and a hassle-free shopping experience. We are committed to providing you with the best possible experience, and we can't wait to see you in our stylish clothing!
+
+Thank you for choosing Everything Hooked. We look forward to serving all your fashion needs!"</blockquote>
+               <!-- <p style="font-size:50px">&#128295;&#128296;&#128297;</p> -->
+               <!-- <div class="hero-cta">
+                    <a href="#" class="primary-cta">Try for free</a>
+                    <a href="#" class="watch-video-cta">
+                        <img src="../assets/watch.svg" alt="Watch a video">Watch a video
+                    </a>
+                </div> -->
+            </div>
+           <!-- <img src="../assets/108487139-window-wash-1440.jpg" class="hero-img" alt="Illustration">-->
+        </div>
+    </section>
+
+  </div>
              <div class="foots">
     <app-footer/>
     </div>
@@ -195,6 +239,7 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Indie+Flower:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Patua+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Iso&family=Slackey&display=swap');
 :root {
   --primary-color: rgb(193,98,134);
 }
@@ -257,14 +302,34 @@ ul {
 }
 
 section {
-  padding: 5em 2em;
+  padding: 1em 1em;
 }
 
 .hero {
   text-align: center;
-      background:url('../assets/hooked2.jpg');
-      background-size: contain;
+   /* background:url('../assets/hooked2.jpg'); */
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
       background-image-opacity: 0.2;
+      padding: 0;
+}
+
+.hero123 {
+  text-align: center;
+   /* background:url('../assets/hooked2.jpg'); */
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-color:rgb(187,187,187);
+      background-image-opacity: 0.2;
+      padding: 0;
+}
+
+.hero12 {
+  text-align: center;
+      background-image-opacity: 0.2;
+      padding: 0;
 }
 
 .left-col .subhead {
@@ -500,9 +565,6 @@ nav li a:hover {
     width: 1080px;
     margin: 0 auto;
   }
-  section {
-    padding: 10em 4em;
-  }
   .hero .container {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -513,7 +575,7 @@ nav li a:hover {
     text-align: left;
   }
   .hero .container .left-col {
-    margin: 3em 3em 0 5em;
+    margin: 0m 0em 0 0em;
     background: rgba(255, 255, 255, 0.05);
      backdrop-filter: blur(8px);
   }
@@ -642,5 +704,8 @@ nav li a:hover {
   left: 30%;
   top: 20%;
 }
-/*# sourceMappingURL=main.css.map */
+.message {
+  /* font-family: 'Rubik Iso', cursive; */
+  font-family: 'Slackey', cursive;
+}
 </style>

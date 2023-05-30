@@ -20,7 +20,7 @@
               </tr>
               <tr>
                 <td>
-                  <a href="">What We Do</a>
+                  <a href=""> </a>
                 </td>
               </tr>
               <!--<tr>
@@ -30,38 +30,7 @@
               </tr>-->
                 <tr>
                   <td>
-                  <a href="">Careers</a>
-                  </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="navin3">
-          <table class="foottable">
-            <thead>
-              <tr>
-                <th><h4>SOLUTIONS</h4></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <a href=""> Car Washing</a>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <a href="">Carpets Washing</a>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <a href="">Engine cleaning</a>
-                </td>
-              </tr>
-                <tr>
-                  <td>
-                  <a href="">Body Polish</a>
+                  <a href=""> </a>
                   </td>
               </tr>
             </tbody>
@@ -77,17 +46,17 @@
             <tbody>
               <tr>
                 <td>
-                 <a href="tel:0764952492"><span> 0764952492</span></a>
+                 <a @click="directto1('contact')"><span> Customer Service</span></a>
                 </td>
               </tr>
               <tr>
                 <td>
-                  <a href="https://wa.me/+27764952492" target="_blank" title="WhatsApp"><span> WhatsApp</span> </a>
+                 <a href="tel:+27722415265"><span> +27722415265</span></a>
                 </td>
               </tr>
               <tr>
                 <td>
-                   <a href="mailto:joesdrivethrough@gmail.com" title="joesdrivethrough@gmail.com"><span> joesdrivethrough@gmail.com</span></a>
+                   <a href="mailto:solarinstalls@gmail.com" title="solarinstalls@gmail.com"><span> solarinstalls@gmail.com</span></a>
                 </td>
               </tr>
                 <tr>
@@ -124,7 +93,7 @@
               </tr>
               <tr>
                 <td>
-                  Monday - Sunday 7:00-20:00
+                  Monday - Saturday 8:00-17:00
                 </td>
               </tr>
               <tr>
@@ -147,7 +116,7 @@
         </div>
       </div>
     <div class="feets">
-    <h5 style="text-align:center">Copyright © 2023 All Rights Reserved. Designed by <a href="">car wash</a> </h5>
+    <h5 style="text-align:center">Copyright © 2023 All Rights Reserved. Designed by <a href="">Kabelo</a> </h5>
     </div>
      </form>
   </div>
@@ -172,10 +141,14 @@ export default {
   methods: {
     hello () {
       alert('hello')
+    },
+    directto1 (n) {
+      window.location.href = `https://solarinstalls.web.app/#/${n}` // `http://localhost:8080/#/${n}`
+      // window.location.href = `http://localhost:8080/#/${n}`
     }
   }
 }
-</script>
+</script >
 
 <style scoped>
 body {
@@ -280,7 +253,7 @@ img {
     display: none;
   }
   .navbardown {
-  background: #262750;
+  background: rgb(45,62,80);
   transition: margin-left .5s;
   padding: 16px;
 }
@@ -327,7 +300,7 @@ img {
   margin: 0;
 }
 .navbardown {
-  background: #262750;
+  background: rgb(45,62,80);
   transition: margin-left .5s;
   padding: 16px;
   display: flex;
@@ -347,12 +320,12 @@ img {
     transition: .8s;
 }
 .fa-facebook::before {
-  color: #44CAE6;
+  color: white;
   font-size: 25px;
   transition: .8s;
 }
 .fa-instagram::before {
-  color: #44CAE6;
+  color: white;
   transition: .8s;
   font-size: 25px;
 }
@@ -414,7 +387,7 @@ a {
   height: 30px;
 }
 .navin3 h4 {
-  color: #44CAE6;
+  color: white;
 }
 
 .navin4 h5 {

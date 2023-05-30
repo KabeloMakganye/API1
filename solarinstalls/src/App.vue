@@ -1,8 +1,10 @@
 <template>
+  <body>
   <div id="app">
     <!-- <img src="./assets/logo.png"> -->
     <router-view/>
   </div>
+</body>
 </template>
 
 <script>
@@ -15,11 +17,11 @@ export default {
 <script type="text/javascript">
     (function () {
         var options = {
-            whatsapp: "+27764952492", // WhatsApp number
-            call_to_action: "", // Call to action
+            whatsapp: "+27722415265", // WhatsApp number
+            call_to_action: "Get Quote Now", // Call to action
             button_color: "#FF6550", // Color of button
             position: "right", // Position may be 'right' or 'left'
-            pre_filled_message: "Hello Bra joe, I", // WhatsApp pre-filled message
+            pre_filled_message: "Hello", // WhatsApp pre-filled message
         };
         var proto = 'https:', host = "getbutton.io", url = proto + '//static.' + host;
         var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = url + '/widget-send-button/js/init.js';
