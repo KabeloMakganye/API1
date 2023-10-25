@@ -235,7 +235,7 @@ export default {
       document.getElementById('sendesugg').style.backgroundColor = '#31F300'
     },
     direct () {
-      window.location.href = `https://kabelodatabase.herokuapp.com/jdndgskdjfhjhsdfbisfdhifhsdfhsdjsdjfhsjhdfkshdjksdhfhsdflsefsdklfjiieislx/${this.signname}`
+      window.location.href = `https://kabelodatabase-2c657e0c9da7.herokuapp.com/jdndgskdjfhjhsdfbisfdhifhsdfhsdjsdjfhsjhdfkshdjksdhfhsdflsefsdklfjiieislx/${this.signname}`
     },
     checksession () {
       if (this.getCookie('userbrajoe') === 'none') {

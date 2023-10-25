@@ -229,14 +229,15 @@ export default {
 
     },
     async loadpictures () {
-      await fetch(`https://kabelodatabase.herokuapp.com/get_all_pictures`)
+      // console.log('testing')
+      await fetch(`https://kabelodatabase-2c657e0c9da7.herokuapp.com/get_all_pictures`)
         .then(response => response.json())
         .then(results => (this.pictures = results))
       this.picturelimit = this.pictures.length
-      for (let index = 0; index < this.picturelimit; index++) {
-        this.pictures[index].url_ = 'https://res.cloudinary.com/hzmda8arw/image/upload/' + this.pictures[index].url_.substring(0, this.pictures[index].url_.indexOf('@') - 1) + '/' + this.pictures[index].url_.substring(this.pictures[index].url_.indexOf('@') + 1, this.pictures[index].url_.length)
+      /* for (let index = 0; index < this.picturelimit; index++) {
+        this.pictures[index].url_ = 'https://res.cloudinary.com/hsl1bzf7z/image/upload/' + this.pictures[index].url_.substring(0, this.pictures[index].url_.indexOf('@') - 1) + '/' + this.pictures[index].url_.substring(this.pictures[index].url_.indexOf('@') + 1, this.pictures[index].url_.length)
         this.picturesby[index] = this.pictures[index].by_
-        /* let div = document.createElement('div')
+        let div = document.createElement('div')
         div.setAttribute('class', 'left-col')
         div.setAttribute('id', 'abc')
         document.getElementById('maindev').appendChild(div)
@@ -245,11 +246,12 @@ export default {
         elem.setAttribute('src', this.pictures[index].url_)
         elem.setAttribute('class', 'hero-img2')
         elem.setAttribute('loading', 'lazy')
-        document.getElementById('abc').appendChild(elem) */
-      }
+        document.getElementById('abc').appendChild(elem)
+      } */
       for (let index = 0; index < this.picturelimit; index++) {
-        // this.pictures[index].url_ = 'https://res.cloudinary.com/hzmda8arw/image/upload/' + this.pictures[index].url_.substring(0, this.pictures[index].url_.indexOf('@') - 1) + '/' + this.pictures[index].url_.substring(this.pictures[index].url_.indexOf('@') + 1, this.pictures[index].url_.length)
+        this.pictures[index].url_ = 'https://res.cloudinary.com/hsl1bzf7z/image/upload/' + this.pictures[index].url_.substring(0, this.pictures[index].url_.indexOf('@') - 1) + '/' + this.pictures[index].url_.substring(this.pictures[index].url_.indexOf('@') + 1, this.pictures[index].url_.length)
         // console.log(this.pictures[index].url_) // .[this.pictures[index].indexOf('@')] =
+        this.picturesby[index] = this.pictures[index].by_
 
         let div = document.createElement('div')
         div.setAttribute('class', 'mySlides fade')
@@ -274,9 +276,10 @@ export default {
 
         document.getElementById(this.pictures[index].url_ + this.picturesby[index] + index).innerText = 'By ' + this.picturesby[index]
       }
+      console.log(this.pictures[0])
     },
     direct () {
-      window.location.href = 'https://kabelodatabase.herokuapp.com'
+      window.location.href = 'https://kabelodatabase-2c657e0c9da7.herokuapp.com'
     },
     addprice () {
       document.querySelector('nav').classList.add('menu-btn')
@@ -296,7 +299,7 @@ export default {
     },
     async register () {
       const axios = require('axios')
-      axios.post('https://kabelodatabase.herokuapp.com/register', {
+      axios.post('https://kabelodatabase-2c657e0c9da7.herokuapp.com/register', {
         todo: 'Buy the milk'
       })
         .then((response) => {
@@ -316,7 +319,7 @@ export default {
       })
       if (allAreFilled) {
         const axios = require('axios')
-        await axios.post('https://kabelodatabase.herokuapp.com/sendemail', {
+        await axios.post('https://kabelodatabase-2c657e0c9da7.herokuapp.com/sendemail', {
           sugestionname: this.sugname,
           sugestionmessage: this.sugmessage,
           sendereamil: 'joesdrivethrough@gmail.com'
@@ -341,7 +344,7 @@ export default {
       } */
     },
     async count () {
-      await fetch(`https://kabelodatabase.herokuapp.com/fn_add_load/brajoe`)
+      // await fetch(`https://kabelodatabase-2c657e0c9da7.herokuapp.com/fn_add_load/brajoe`)
     },
     rerun () {
       this.time = setInterval(() => this.plusSlides(1), 5000)
@@ -352,6 +355,7 @@ export default {
   },
   mounted () {
     this.loadpictures()
+    console.log('testing')
     window.addEventListener('resize', this.removemenu)
     // create a cookie that will help us coont number of page visits.
     let coo = ''

@@ -150,7 +150,7 @@ export default {
         })
         if (allAreFilled) {
           const axios = require('axios')
-          await axios.post('https://kabelodatabase.herokuapp.com/register', {
+          await axios.post('https://kabelodatabase-2c657e0c9da7.herokuapp.com/register', {
             name: this.signname,
             surname: this.signsurname,
             carname: this.signcarname,
