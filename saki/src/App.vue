@@ -12,9 +12,8 @@ export default {
   name: 'App'
 }
 </script>
-
 <!-- GetButton.io widget -->
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     (function () {
         var options = {
             whatsapp: "+27842076633", // WhatsApp number
@@ -28,5 +27,5 @@ export default {
         s.onload = function () { WhWidgetSendButton.init(host, proto, options); };
         var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
     })();
-</script>
+</script> -->
 <!-- /GetButton.io widget -->

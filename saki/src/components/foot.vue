@@ -116,7 +116,7 @@
         </div>
       </div>
     <div class="feets">
-    <h5 style="text-align:center; color: white;">Copyright © 2023 All Rights Reserved. Designed by <a href="kabelomakganye.co.za">Kabelo</a> </h5>
+    <h5 style="text-align:center; color: white;">Copyright © 2024 All Rights Reserved. Designed by <a href="kabelomakganye.co.za">Kabelo</a> </h5>
     </div>
      </form>
   </div>

@@ -93,7 +93,8 @@ export default {
       signupPass: '',
       signupPassCon: '',
       pic: null,
-      nextpage: ''
+      nextpage: '',
+      linkdata: 'https://kabelodatabase-4e42dc7fda46.herokuapp.com/'
     }
   },
   mounted () {
@@ -156,7 +157,7 @@ export default {
       })
       if (allAreFilled) {
         const axios = require('axios')
-        await axios.post('https://kabelodatabase-2c657e0c9da7.herokuapp.com/login', {
+        await axios.post(`${this.linkdata}login`, {
           email: this.signemail,
           password: this.signupPass
         })
@@ -179,7 +180,7 @@ export default {
         swal('Fill up everything', '', 'error')
       }
       if (this.nextpage === 'win') {
-        await fetch(`https://kabelodatabase-2c657e0c9da7.herokuapp.com/get_user/${this.signemail}`)
+        await fetch(`${this.linkdata}get_user/${this.signemail}`)
           .then(response => response.json())
           .then(results => (this.resultsFetched_3 = results))
         this.signname = this.resultsFetched_3[0].name_
@@ -234,7 +235,7 @@ export default {
       })
       if (allAreFilled) {
         const axios = require('axios')
-        await axios.post('https://kabelodatabase.herokuapp.com/sendemail', {
+        await axios.post(`${this.linkdata}sendemail`, {
           sugestionname: this.sugname,
           sugestionmessage: this.sugmessage,
           sendereamil: 'joesdrivethrough@gmail.com',

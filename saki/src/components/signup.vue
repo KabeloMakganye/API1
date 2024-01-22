@@ -1,19 +1,17 @@
 <template @resize="removemenu">
 <div >
-<img class="ppp" src="../assets/IMG-20230216-WA0070.jpg" alt=''>
 <img class="ppp" src="../assets/slide2.jpg" alt=''>
 <img class="ppp" src="../assets/slide3.jpg" alt=''>
 <img class="ppp" src="../assets/slide4.jpg" alt=''>
 <img class="ppp" src="../assets/slide5.jpg" alt=''>
 <img class="ppp" src="../assets/slide6.jpg" alt=''>
-<img class="ppp" src="../assets/IMG-20230216-WA0070.jpg" alt=''>
-<img class="ppp" src="../assets/IMG-20230216-WA0070.jpg" alt=''>
-<img class="ppp" src="../assets/IMG-20230216-WA0070.jpg" alt=''>
-<img class="ppp" src="../assets/IMG-20230216-WA0070.jpg" alt=''>
-<img class="ppp" src="../assets/IMG-20230216-WA0070.jpg" alt=''>
-<img class="ppp" src="../assets/IMG-20230216-WA0070.jpg" alt=''>
-<img class="ppp" src="../assets/IMG-20230216-WA0070.jpg" alt=''>
-<img class="ppp" src="../assets/IMG-20230216-WA0070.jpg" alt=''>
+<img class="ppp" src="../assets/IMG-20230216-WA0007.jpg" alt=''>
+<img class="ppp" src="../assets/IMG-20230216-WA0010.jpg" alt=''>
+<img class="ppp" src="../assets/IMG-20230216-WA0014.jpg" alt=''>
+<img class="ppp" src="../assets/IMG-20230517-WA0042.jpg" alt=''>
+<img class="ppp" src="../assets/IMG-20230517-WA0043.jpg" alt=''>
+<img class="ppp" src="../assets/IMG-20230216-WA0009.jpg" alt=''>
+
 </div>
 </template>
 

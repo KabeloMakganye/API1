@@ -60,18 +60,6 @@
     <div class="slideshow-container" id="kabelo">
 <div class="mySlides fade">
 
-<img id="app2" src="../assets/IMG-20230216-WA0070.jpg" style="top: 50%;left: 50%;width:100%;height:100%;object-fit:cover;display: block;filter: blur(1px);-webkit-filter: blur(1px);">
-<div class="centered">
-  <p style="font-weight: bold;">Our main division is the travel division. At any given moment, there are literally hundreds of thousands of people travelling the world. We treat all clients at a premium level. We tailor products to suite your needs - finding highly intuitive solutions without ever compromising on service.</p>
-
-    <!-- <li class="ab"><a href="">Contact Us Now</a></li> -->
-
-</div>
-<!-- <div class="text2"><H3 class="text2">WE INSTALL SOLAR SYSTEMS YOU SAVE MONEY Get a Quote Now</H3></div>
-  <div class="text2"><p class="text2"></p></div> -->
-</div>
-<div class="mySlides fade">
-
   <img id="app2" src="../assets/IMG-20230216-WA0007.jpg" style="top: 50%;left: 50%;width:100%;height:100%;object-fit:cover;display: block;filter: blur(1px);-webkit-filter: blur(1px);">
 <div class="centered">
   <p style="font-weight: bold;">Our main division is the travel division. At any given moment, there are literally hundreds of thousands of people travelling the world. We treat all clients at a premium level. We tailor products to suite your needs - finding highly intuitive solutions without ever compromising on service.</p>
@@ -364,7 +352,6 @@
     </div>
   </div>
 </template>
-
 <script>
 import foot from './foot.vue'
 import axios from 'axios'
@@ -395,6 +382,28 @@ export default {
     window.removeEventListener('resize', this.removemenu)
   }, */
   methods: {
+    loadwhatsapp () {
+      (function () {
+        let options = {
+          whatsapp: '+27842076633', // WhatsApp number
+          call_to_action: 'Get Travel Quote Now', // Call to action
+          button_color: '#FF6550', // Color of button
+          position: 'right', // Position may be 'right' or 'left'
+          pre_filled_message: 'Hello, Travel Saki' // WhatsApp pre-filled message
+        }
+        let proto = 'https:'
+        let host = 'getbutton.io'
+        let url = proto + '//static.' + host
+        let s = document.createElement('script')
+        s.type = 'text/javascript'
+        s.async = true
+        s.src = url + '/widget-send-button/js/init.js'
+        s.onload = function () {
+          WhWidgetSendButton.init(host, proto, options)
+        }
+        var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x)
+      })()
+    },
     directto (n) {
       window.location.href = `https://solarinstalls.web.app/#/${n}` // `http://localhost:8080/#/${n}`
       // window.location.href = `http://localhost:8080/#/${n}`
@@ -469,7 +478,7 @@ export default {
       })
       if (allAreFilled) {
         // const axios = require('axios')
-        await axios.post('https://kabelodatabase.herokuapp.com/sendemail', {
+        await axios.post('http://localhost:3000/sendemail', {
           sugestionname: this.sugname,
           sugestionmessage: this.sugmessage,
           sendereamil: 'joesdrivethrough@gmail.com'
@@ -487,9 +496,11 @@ export default {
             // alert(response.data)
           }, (error) => {
             console.log(error)
+            swal('Please use Whatsapp', '', 'error',)
+
           })
       } else {
-        alert('Enter all required fields')
+        swal('Enter all required fields', '', 'error')
       }
       document.getElementById('sendesugg').disabled = false
       document.getElementById('sendesugg').style.backgroundColor = '#2D3E50'
@@ -510,6 +521,7 @@ export default {
     this.rerun()
   },
   mounted () {
+    this.loadwhatsapp()
     // this.loadpictures()
     window.addEventListener('resize', this.removemenu)
     // create a cookie that will help us coont number of page visits.
@@ -1224,5 +1236,12 @@ font-family: 'Preahvihear', sans-serif;
   width: 80%;
   padding: 20px;
   text-align: center;
+}
+.swal-overlay {
+  background-color: rgba(189, 34, 34, 0.383)
+}
+.swal-modal {
+  background-color: rgb(255, 255, 255);
+  border: 3px solid white;
 }
 </style>

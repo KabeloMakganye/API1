@@ -192,7 +192,9 @@ export default {
       picturelimit: 0,
       n: '',
       slideIndex: 1,
-      time: ''
+      time: '',
+      linkdata: 'https://kabelodatabase-4e42dc7fda46.herokuapp.com/',
+      cloudinaryuser: 'hc3znocff'
     }
   },
 
@@ -230,7 +232,7 @@ export default {
     },
     async loadpictures () {
       // console.log('testing')
-      await fetch(`https://kabelodatabase-2c657e0c9da7.herokuapp.com/get_all_pictures`)
+      await fetch(`${this.linkdata}get_all_pictures`)
         .then(response => response.json())
         .then(results => (this.pictures = results))
       this.picturelimit = this.pictures.length
@@ -249,7 +251,7 @@ export default {
         document.getElementById('abc').appendChild(elem)
       } */
       for (let index = 0; index < this.picturelimit; index++) {
-        this.pictures[index].url_ = 'https://res.cloudinary.com/hsl1bzf7z/image/upload/' + this.pictures[index].url_.substring(0, this.pictures[index].url_.indexOf('@') - 1) + '/' + this.pictures[index].url_.substring(this.pictures[index].url_.indexOf('@') + 1, this.pictures[index].url_.length)
+        this.pictures[index].url_ = 'https://res.cloudinary.com/' + this.cloudinaryuser + '/image/upload/' + this.pictures[index].url_.substring(0, this.pictures[index].url_.indexOf('@') - 1) + '/' + this.pictures[index].url_.substring(this.pictures[index].url_.indexOf('@') + 1, this.pictures[index].url_.length)
         // console.log(this.pictures[index].url_) // .[this.pictures[index].indexOf('@')] =
         this.picturesby[index] = this.pictures[index].by_
 
@@ -294,12 +296,12 @@ export default {
       document.querySelector('nav').classList.remove('menu-btn')
     },
     async upload () {
-      await fetch(`https://kabelodatabase.herokuapp.com/set_pic/${this.$refs.myFiles.files}`)
+      await fetch(`${this.linkdata}set_pic/${this.$refs.myFiles.files}`)
       console.log(this.$refs.myFiles.files)
     },
     async register () {
       const axios = require('axios')
-      axios.post('https://kabelodatabase-2c657e0c9da7.herokuapp.com/register', {
+      axios.post(`${this.linkdata}register`, {
         todo: 'Buy the milk'
       })
         .then((response) => {
@@ -319,7 +321,7 @@ export default {
       })
       if (allAreFilled) {
         const axios = require('axios')
-        await axios.post('https://kabelodatabase-2c657e0c9da7.herokuapp.com/sendemail', {
+        await axios.post(`${this.linkdata}sendemail`, {
           sugestionname: this.sugname,
           sugestionmessage: this.sugmessage,
           sendereamil: 'joesdrivethrough@gmail.com'
@@ -344,7 +346,7 @@ export default {
       } */
     },
     async count () {
-      // await fetch(`https://kabelodatabase-2c657e0c9da7.herokuapp.com/fn_add_load/brajoe`)
+      await fetch(`${this.linkdata}fn_add_load/brajoe`)
     },
     rerun () {
       this.time = setInterval(() => this.plusSlides(1), 5000)

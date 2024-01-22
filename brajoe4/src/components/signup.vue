@@ -102,7 +102,8 @@ export default {
       signupPass: '',
       signupPassCon: '',
       signnumber: '',
-      pic: null
+      pic: null,
+      linkdata: 'https://kabelodatabase-4e42dc7fda46.herokuapp.com/'
     }
   },
   mounted () {
@@ -132,7 +133,7 @@ export default {
       const fd = new FormData()
       console.log(this.pic)
       fd.append('image', this.pic, this.pic.name)
-      axios.post(`https://kabelodatabase.herokuapp.com/image`, {
+      axios.post(`${this.linkdata}image`, {
         todo: this.pic
       })
         .then(res => {
@@ -150,7 +151,7 @@ export default {
         })
         if (allAreFilled) {
           const axios = require('axios')
-          await axios.post('https://kabelodatabase-2c657e0c9da7.herokuapp.com/register', {
+          await axios.post(`${this.linkdata}register`, {
             name: this.signname,
             surname: this.signsurname,
             carname: this.signcarname,
@@ -203,7 +204,7 @@ export default {
       })
       if (allAreFilled) {
         const axios = require('axios')
-        await axios.post('https://kabelodatabase.herokuapp.com/sendemail', {
+        await axios.post(`${this.linkdata}sendemail`, {
           sugestionname: this.sugname,
           sugestionmessage: this.sugmessage,
           sendereamil: 'joesdrivethrough@gmail.com',

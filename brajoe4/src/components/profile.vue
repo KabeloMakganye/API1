@@ -126,7 +126,8 @@ export default {
       points: 0,
       lim: 0,
       date_: '',
-      selectedcar: ''
+      selectedcar: '',
+      linkdata: 'https://kabelodatabase-4e42dc7fda46.herokuapp.com/'
     }
   },
 
@@ -135,7 +136,7 @@ export default {
   },
   methods: {
     async getbook () {
-      await fetch(`https://kabelodatabase.herokuapp.com/get_book`)
+      await fetch(`${this.linkdata}get_book`)
         .then(response => response.json())
         .then(results => (this.resultsFetched_5 = results))
       this.booksize = this.resultsFetched_5.length
@@ -155,7 +156,7 @@ export default {
     },
     async newrecord () {
       if (this.bookdate_.length > 0 && this.bookamount_.length > 0) {
-        await fetch(`https://kabelodatabase.herokuapp.com/fn_add_book/${this.bookdate_}/${this.bookamount_}`)
+        await fetch(`${this.linkdata}fn_add_book/${this.bookdate_}/${this.bookamount_}`)
           .then(response => response.json())
           .then(results => (this.resultsFetched_5 = results))
         if (this.resultsFetched_5[0].fn_add_book === 1) {
@@ -203,7 +204,7 @@ export default {
               if (!i.value) allAreFilled = false
             })
             if (allAreFilled) {
-              await fetch(`https://kabelodatabase.herokuapp.com/fn_add_wash/${this.date_}/${this.signcarid[index]}`)
+              await fetch(`${this.linkdata}fn_add_wash/${this.date_}/${this.signcarid[index]}`)
                 .then(response => response.json())
                 .then(results => (this.resultsFetched_5 = results))
               if (this.resultsFetched_5[0].fn_add_wash === 0) {
@@ -235,7 +236,7 @@ export default {
       document.getElementById('sendesugg').style.backgroundColor = '#31F300'
     },
     direct () {
-      window.location.href = `https://kabelodatabase-2c657e0c9da7.herokuapp.com/jdndgskdjfhjhsdfbisfdhifhsdfhsdjsdjfhsjhdfkshdjksdhfhsdflsefsdklfjiieislx/${this.signname}`
+      window.location.href = `${this.linkdata}jdndgskdjfhjhsdfbisfdhifhsdfhsdjsdjfhsjhdfkshdjksdhfhsdflsefsdklfjiieislx/${this.signname}`
     },
     checksession () {
       if (this.getCookie('userbrajoe') === 'none') {
@@ -297,10 +298,10 @@ export default {
       document.getElementById('blur').style.width = '100%'
     },
     async counts () {
-      await fetch(`https://kabelodatabase.heroskuapp.com/fn_add_load/brajoe`)
+      await fetch(`${this.linkdata}fn_add_load/brajoe`)
     },
     async login () {
-      await fetch(`https://kabelodatabase.herokuapp.com/get_user/${this.signemail}`)
+      await fetch(`${this.linkdata}get_user/${this.signemail}`)
         .then(response => response.json())
         .then(results => (this.resultsFetched_3 = results))
       this.lim = this.resultsFetched_3.length

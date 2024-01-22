@@ -100,7 +100,8 @@ export default {
 
       signname: '',
       signsurname: '',
-      nextpages: ''
+      nextpages: '',
+      linkdata: 'https://kabelodatabase-4e42dc7fda46.herokuapp.com/'
     }
   },
 
@@ -164,7 +165,7 @@ export default {
       document.getElementById('blur').style.width = '100%'
     },
     async counts () {
-      await fetch(`https://kabelodatabase.heroskuapp.com/fn_add_load/brajoe`)
+      await fetch(`${this.linkdata}fn_add_load/brajoe`)
     }
   },
   mounted () {
