@@ -63,7 +63,7 @@
                   <td>
                   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
          <div class="navin">
-        <a href="" ><span class="fa fa-facebook"></span></a>
+        <a href="https://www.facebook.com/p/Miss-diamonds-treats-center-100065373883555/" ><span class="fa fa-facebook"></span></a>
          </div>
                   </td>
               </tr>
@@ -71,7 +71,7 @@
                   <td>
                   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
          <div class="navin">
-        <a href="" ><span class="fa fa-instagram"></span></a>
+        <a href="https://www.instagram.com/miss_diamonds_treats_center/?hl=en" ><span class="fa fa-instagram"></span></a>
          </div>
                   </td>
               </tr>
