@@ -77,12 +77,12 @@
             <tbody>
               <tr>
                 <td>
-                 <a href="tel:0764952492"><span> 0764952492</span></a>
+                 <a href="tel:0824993400"><span> 0824993400</span></a>
                 </td>
               </tr>
               <tr>
                 <td>
-                  <a href="https://wa.me/+27764952492" target="_blank" title="WhatsApp"><span> WhatsApp</span> </a>
+                  <a href="https://wa.me/+27824993400" target="_blank" title="WhatsApp"><span> WhatsApp</span> </a>
                 </td>
               </tr>
               <tr>

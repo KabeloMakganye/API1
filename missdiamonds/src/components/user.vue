@@ -14,20 +14,23 @@
   </div> -->
     <div class="navbar">
         <div class="container">
-        <a class="logo" href="https://brajoecarwash.co.za/#/">BRA JOE<span> CarWash</span></a>
+            <a  href="#">
+             <img class="logo" href="https://www.diamondtreats.co.za" src="../assets/diamonds.jpg" style="width: 100px; height:50px; "  alt="Open Navigation">
+            </a>
             <img @click="addmenus"  class="mobile-menu" src="../assets/menu.svg" alt="Open Navigation">
             <nav id="mysidebar">
                 <img @click="removemenu" id="mobile-exit" class="mobile-menu-exit" src="../assets/exit.svg" alt="Close Navigation">
                 <ul class="primary-nav">
-                    <li class="current"><a href="https://brajoecarwash.co.za/#/">Home</a></li>
+                    <li class="current"><a href="https://www.diamondtreats.co.za/#/">Home</a></li>
                     <!--<li><a @click="toaccount()">Account</a></li>-->
 
                 </ul>
 
                 <ul class="secondary-nav">
                   <!-- <input id="sendesuggs" type="button" @click="direct" class="send-message-cta" value="Upload Image"> -->
+                   <li><a>{{signname}}</a></li>
                     <li><a @click="direct" href="#">Upload Image</a></li>
-                    <li><a @click="directto('profile')">Profile</a></li>
+                    <!-- <li><a @click="directto('profile')">Profile</a></li> -->
                     <!-- <li><a href="#">Contact</a></li> -->
                     <!-- <li id="homebooking" ><a  @click="history(2)">History</a></li>
                     <li id="infodata" style="display: none;"><a  @click="history(1)">add wash</a></li> -->
@@ -37,23 +40,24 @@
         </div>
     </div>
 
-    <section id="book" class="heros">
+      <section class="hero2">
         <div class="container">
             <div class="left-col">
+              <div class="contact-left">
                <!-- <p class="subhead">It's Nitty &amp; Gritty</p> -->
                <!-- <h1>Limited OFFER </h1> -->
-                <h2>{{signname}}</h2>
+                <!-- <h2>{{signname}}</h2> -->
                 <h2>You have {{points}} Points</h2>
 
                 <form id="registerid" onsubmit="return false">
                   <div id="suggestions" class="suggestions">
-                    <label for="date">Add wash</label>
-                    <select id="cars" name="cars" v-model="selectedcar">
-                      <option  value="" disabled selected hidden  >Choose a car</option>
-                      <option v-for="n in lim" :key= "n">{{ signcarname[n-1] }}</option>
+                    <label for="date">BOOK NOW...!</label>
+                    <select class="userinput" id="cars" name="cars" v-model="selectedcar">
+                      <option  value="" disabled selected hidden  >Choose Plan</option>
+                      <option v-for="n in packagecount" :key= "n">{{ signcarname[n-1] }}</option>
                     </select><br>
 
-                    <input  type= "date" id="myDate" v-model="date_" min="2022-11-26" max="2022-11-26" required pattern="\d{4}-\d{2}-\d{2}"> <br>
+                    <input type= "date" id="myDate" v-model="date_" max="2050-11-26" required pattern="\d{4}-\d{2}-\d{2}"> <br>
 
                     <input id="sendesugg" type="button" @click="addwash"  class="send-message-cta" value="Save" >
                   </div>
@@ -66,6 +70,7 @@
                         <img src="../assets/watch.svg" alt="Watch a video">Watch a video
                     </a>
                 </div> -->
+              </div>
             </div>
            <!-- <img src="../assets/108487139-window-wash-1440.jpg" class="heros-img" alt="Illustration">-->
         </div>
@@ -89,8 +94,8 @@
             </div>
         </div>
     </section> -->
-        <div class="feet">
-    <h5 style="text-align:center">Copyright © 2023 All Rights Reserved. Designed by <a href="">car wash</a> </h5>
+    <div class="feet">
+    <h5 style="text-align:center">Copyright © 2024 All Rights Reserved. Designed by <a href="kabelomakganye.co.za">Kabelo</a> </h5>
     </div>
   </div>
 </template>
@@ -111,6 +116,8 @@ export default {
       sugmessage: '',
       resultsFetched_3: '',
       resultsFetched_4: '',
+      resultsFetched_5: '',
+      packagecount: 0,
       atload: 0,
       nextpage: '',
 
@@ -123,7 +130,7 @@ export default {
       totatwashcount: 0,
       washcount: 0,
       points: 0,
-      lim: 0,
+      lim: 4,
       date_: '',
       selectedcar: '',
       linkdata: 'https://kabelodatabase-4e42dc7fda46.herokuapp.com/'
@@ -159,10 +166,10 @@ export default {
     async addwash () {
       document.getElementById('sendesugg').disabled = true
       document.getElementById('sendesugg').style.backgroundColor = '#F0998B'
-      if (this.selectedcar.length > 0) {
+      /* if (this.selectedcar.length > 0) {
         for (let index = 0; index < this.lim; index++) {
           if (this.selectedcar === this.signcarname[index]) {
-            let allAreFilled = true /* check if all required fields are entered */
+            let allAreFilled = true
             document.getElementById('suggestions').querySelectorAll('[required]').forEach(function (i) {
               if (!allAreFilled) return
               if (!i.value) allAreFilled = false
@@ -172,7 +179,7 @@ export default {
                 .then(response => response.json())
                 .then(results => (this.resultsFetched_5 = results))
               if (this.resultsFetched_5[0].fn_add_wash === 0) {
-                swal('wash already added', '', 'warning', {
+                swal('Booking already added', '', 'warning', {
                   buttons: false,
                   timer: 1000
                 })
@@ -191,16 +198,26 @@ export default {
           }
         }
       } else {
-        swal('Select a car', '', 'error', {
+        swal('Select a Plan', '', 'error', {
           buttons: false,
           timer: 1000
         })
-      }
+      } */
+      /* Temporary message as we still developing */
+      swal('Booking comin soon', '', 'success', {
+        buttons: false,
+        timer: 3000
+      })
+
       document.getElementById('sendesugg').disabled = false
       document.getElementById('sendesugg').style.backgroundColor = '#31F300'
     },
     direct () {
-      window.location.href = `${this.linkdata}jdndgskdjfhjhsdfbisfdhifhsdfhsdjsdjfhsjhdfkshdjksdhfhsdflsefsdklfjiieislx/${this.signname}`
+      swal('Image upload coming soon', '', 'success', {
+        buttons: false,
+        timer: 3000
+      })
+      // window.location.href = `${this.linkdata}jdndgskdjfhjhsdfbisfdhifhsdfhsdjsdjfhsjhdfkshdjksdhfhsdflsefsdklfjiieislx/${this.signname}`
     },
     checksession () {
       if (this.getCookie('userbrajoe') === 'none') {
@@ -208,16 +225,16 @@ export default {
           buttons: false,
           timer: 3000
         })
-        window.location.replace('https://brajoecarwash.co.za/#/login')
+        window.location.replace('https://www.diamondtreats.co.za/#/login')
         // window.location.replace('http://localhost:8080/#/login')
       } else {
         const d = new Date()
         d.setTime(d.getTime() + (1 * 1 * 1 * 1 * 180000)) // session will expire after a minute
         // d.setUTCHours(0, 0, 0)
         let expires = 'expires=' + d.toUTCString()
-        document.cookie = 'userbrajoe' + '=' + this.signname + ';' + expires + ';path=/'
-        document.cookie = 'surnamebrajoe' + '=' + this.signsurname + ';' + expires + ';path=/'
-        document.cookie = 'emailbrajoe' + '=' + this.signemail + ';' + expires + ';path=/'
+        document.cookie = 'usermissdiamonds' + '=' + this.signname + ';' + expires + ';path=/'
+        document.cookie = 'surnamemissdiamonds' + '=' + this.signsurname + ';' + expires + ';path=/'
+        document.cookie = 'emailmissdiamonds' + '=' + this.signemail + ';' + expires + ';path=/'
       }
     },
     logout () {
@@ -225,13 +242,13 @@ export default {
       d.setTime(d.getTime() - (1 * 1 * 1 * 1 * 180000)) // session will expire after a minute
       // d.setUTCHours(0, 0, 0)
       let expires = 'expires=' + d.toUTCString()
-      document.cookie = 'userbrajoe' + '=' + this.signname + ';' + expires + ';path=/'
-      document.cookie = 'surnamebrajoe' + '=' + this.signsurname + ';' + expires + ';path=/'
-      document.cookie = 'emailbrajoe' + '=' + this.signemail + ';' + expires + ';path=/'
+      document.cookie = 'usermissdiamonds' + '=' + this.signname + ';' + expires + ';path=/'
+      document.cookie = 'surnamemissdiamonds' + '=' + this.signsurname + ';' + expires + ';path=/'
+      document.cookie = 'emailmissdiamonds' + '=' + this.signemail + ';' + expires + ';path=/'
       // add procedure that add to log when one login
       // }
       // window.location.replace('http://localhost:8080/#/login')
-      window.location.replace('https://brajoecarwash.co.za/#/login')
+      window.location.replace('https://www.diamondtreats.co.za/#/login')
     },
     getCookie (cname) {
       let name = cname + '='
@@ -265,17 +282,17 @@ export default {
       await fetch(`${this.linkdata}fn_add_load/brajoe`)
     },
     async login () {
-      await fetch(`${this.linkdata}get_user/${this.signemail}`)
+      await fetch(`${this.linkdata}get_user_miss/${this.signemail}`)
         .then(response => response.json())
         .then(results => (this.resultsFetched_3 = results))
       this.lim = this.resultsFetched_3.length
       this.signname = this.resultsFetched_3[0].name_
       this.signsurname = this.resultsFetched_3[0].surname_
       this.signplate = this.resultsFetched_3[0].platenum_
-      for (let index = 0; index < this.lim; index++) {
+      /* for (let index = 0; index < this.lim; index++) {
         this.signcarname[index] = this.resultsFetched_3[index].carname_
         this.signcarid[index] = this.resultsFetched_3[index].ucid_
-      }
+      } */
       this.totatwashcount = this.resultsFetched_3[0].totatwashcount_
       this.washcount = this.resultsFetched_3[0].washcount_
       this.points = this.resultsFetched_3[0].points_
@@ -285,14 +302,14 @@ export default {
       var dmax = new Date()
       d.setTime(d.getTime() - (7 * 24 * 60 * 60 * 1000))
       dmax.setTime(dmax.getTime())
-      var month = d.getMonth() + 1
+      /* var month = d.getMonth() + 1
       var year = d.getFullYear()
-      var day = d.getDate()
+      var day = d.getDate() */
 
       var maxmonth = dmax.getMonth() + 1
       var maxyear = dmax.getFullYear()
       var maxday = dmax.getDate()
-      if (month < 10) {
+      /* if (month < 10) {
         if (day < 10) {
           document.getElementById('myDate').min = year + '-0' + month + '-0' + day
         } else {
@@ -304,37 +321,45 @@ export default {
         } else {
           document.getElementById('myDate').min = year + '-' + month + '-' + day
         }
-      }
+      } */
+      // get list of packages
+      await fetch(`${this.linkdata}get_all_packages`)
+        .then(response => response.json())
+        .then(results => (this.resultsFetched_5 = results))
 
+      this.packagecount = this.resultsFetched_5.length
+      for (let x = 0; x < this.resultsFetched_5.length; x++) {
+        this.signcarname[x] = this.resultsFetched_5[x].packagename_
+      }
       if (maxmonth < 10) {
         if (maxday < 10) {
-          document.getElementById('myDate').max = maxyear + '-0' + maxmonth + '-0' + maxday
+          document.getElementById('myDate').min = maxyear + '-0' + maxmonth + '-0' + maxday
         } else {
-          document.getElementById('myDate').max = maxyear + '-0' + maxmonth + '-' + maxday
+          document.getElementById('myDate').min = maxyear + '-0' + maxmonth + '-' + maxday
         }
       } else {
         if (maxday < 10) {
-          document.getElementById('myDate').max = maxyear + '-' + maxmonth + '-0' + maxday
+          document.getElementById('myDate').min = maxyear + '-' + maxmonth + '-0' + maxday
         } else {
-          document.getElementById('myDate').max = maxyear + '-' + maxmonth + '-' + maxday
+          document.getElementById('myDate').min = maxyear + '-' + maxmonth + '-' + maxday
         }
       }
     }
   },
   mounted () {
     window.addEventListener('resize', this.removemenu)
-    if (this.getCookie('userbrajoe') === 'none') {
+    if (this.getCookie('usermissdiamonds') === 'none') {
       // alert('Session expired, login again')
       swal('', 'Session expired, login again', 'error', {
         buttons: false,
         timer: 3000
       })
       // window.location.replace('http://localhost:8080/#/login')
-      window.location.replace('https://brajoecarwash.co.za/#/login') // 'http://localhost:8080/#/login'
+      window.location.replace('https://www.diamondtreats.co.za/#/login') // 'http://localhost:8080/#/login'
     } else {
-      this.signname = this.getCookie('userbrajoe')
-      this.signsurname = this.getCookie('surnamebrajoe')
-      this.signemail = this.getCookie('emailbrajoe')
+      this.signname = this.getCookie('usermissdiamonds')
+      this.signsurname = this.getCookie('surnamemissdiamonds')
+      this.signemail = this.getCookie('emailmissdiamonds')
       this.login()
     }
     // alert('welcome')

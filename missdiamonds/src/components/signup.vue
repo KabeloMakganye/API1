@@ -26,7 +26,7 @@
                 </ul>
 
                 <ul class="secondary-nav">
-                    <li><a >Services</a></li>
+                    <li><a href="https://www.diamondtreats.co.za" >Home</a></li>
                     <li class="go-premium-cta"><a href="https://www.diamondtreats.co.za/#/login">Log in</a></li>
                     <li class="go-premium-cta"><a href="https://www.diamondtreats.co.za/#/signup">Sign up</a></li>
                     <li><a >Contact Us</a></li>
@@ -45,7 +45,7 @@
 
                 <form id="registerid" onsubmit="return false">
                   <div id="suggestions" class="suggestions">
-                    <label for="name">Name</label>
+                    <label for="name"><p>Name</p></label>
                     <input type="text" v-model= "signname" id="name" name="name" required oninvalid="this.setCustomValidity('Enter Name')" oninput="this.setCustomValidity('')">
 
                     <label for="surname">Surname</label>

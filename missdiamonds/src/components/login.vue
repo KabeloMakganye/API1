@@ -26,7 +26,7 @@
                 </ul>
 
                 <ul class="secondary-nav">
-                    <li><a >Services</a></li>
+                    <li><a href="https://www.diamondtreats.co.za" >Home</a></li>
                     <li class="go-premium-cta"><a href="https://www.diamondtreats.co.za/#/login">Log in</a></li>
                     <li class="go-premium-cta"><a href="https://www.diamondtreats.co.za/#/signup">Sign up</a></li>
                     <li><a >Contact Us</a></li>
@@ -205,7 +205,7 @@ export default {
         }
         if (coo.length <= 1) { */
         const d = new Date()
-        d.setTime(d.getTime() + (1 * 1 * 1 * 1 * 180000)) // session will expire after a minute
+        d.setTime(d.getTime() + (1 * 1 * 60 * 60 * 1000)) // session will expire after a minute
         // d.setUTCHours(0, 0, 0)
         let expires = 'expires=' + d.toUTCString()
         document.cookie = 'usermissdiamonds' + '=' + this.signname + ';' + expires + ';path=/'
@@ -218,12 +218,13 @@ export default {
           buttons: false,
           timer: 3000
         }) */
-        swal('', 'Booking Coming soon', 'success', {
+        swal('', 'WELCOME', 'success', {
           buttons: false,
           timer: 3000
         })
         // to be done after user page is done
         // window.location.href = 'https://brajoecarwash.co.za/#/user' // 'http://localhost:8080/#/user'
+        window.location.href = 'https://www.diamondtreats.co.za/#/user'
       } else if (this.nextpage === 'wrong') {
         // alert('wrong Password')
         swal('wrong Password', '', 'error')

@@ -187,6 +187,7 @@
             </div>
         </div>
     </section> -->
+    <!--
    <section class="testimonials-section">
         <div class="container">
                         <div class="aboutimg">
@@ -200,6 +201,44 @@
             </tr>
               </table>
             </div>
+          <table >
+            <tr>
+              <td>
+                <img id="app2" class="aboutimg" src="../assets/d5.jpg" style="width:100%;display: block;">
+              </td>
+              <td>
+                <p>Your Comfort is our priority</p>
+              </td>
+            </tr>
+            <tr >
+              <td>
+                <p>Your Comfort is our priority</p>
+              </td>
+              <td>
+                <img id="app2" class="aboutimg" src="../assets/d6.jpg" style="width:100%;display: block;">
+              </td>
+            </tr>
+            <tr >
+              <td>
+                <img id="app2" class="aboutimg" src="../assets/d9.jpg" style="width:100%;display: block;">
+              </td>
+              <td >
+                <p >Payment methods</p>
+              </td>
+            </tr>
+          </table>
+
+        </div>
+    </section> -->
+
+    <div class="abc"></div>
+    <section>
+                        <div class="contact-left">
+                        <div class="aboutimg">
+                <h2 style="text-align: center;vertical-align:bottom">We Offer Massage Treats(House Calls Available too) Yoni Virginal Products, Facial glow products, weight-loss & weight-gain products. We are looking forward to building an overlasting business relation with you.</h2>
+            </div>
+        <div class="container">
+
           <table >
             <!-- <tr>
                   <img id="app2" src="../assets/d1.jpg"  class="aboutimg123" style="right: 50%; width:100%;display: block;">
@@ -236,19 +275,28 @@
               </td>
             </tr>
           </table>
-
         </div>
-    </section>
+            </div>
+                        <div class="contact-left">
+              <h2>OUR GALARY AND SPECIALS</h2>
+                  <img id="app2" src="../assets/d1.jpg"  class="aboutimg1234" style="right: 50%; width:100%;display: block;">
+                  <img id="app2" src="../assets/d2.jpg"  class="aboutimg1234" style="right: 50%; width:100%;display: none;">
+                  <img id="app2" src="../assets/d3.jpg"  class="aboutimg1234" style="right: 50%; width:100%;display: none;">
+                  <!-- <img id="app2" src="../assets/d4.jpg"  class="aboutimg1234" style="right: 50%; width:100%;display: none;"> -->
+                  <img id="app2" src="../assets/d5.jpg"  class="aboutimg1234" style="right: 50%; width:100%;display: none;">
+                  <img id="app2" src="../assets/d6.jpg"  class="aboutimg1234" style="right: 50%; width:100%;display: none;">
+                  <img id="app2" src="../assets/d7.jpg"  class="aboutimg1234" style="right: 50%; width:100%;display: none;">
+                  <img id="app2" src="../assets/d8.jpg"  class="aboutimg1234" style="right: 50%; width:100%;display: none;">
+            </div>
 
-    <div class="abc"></div>
-    <section class="contact-section">
         <div class="container">
             <div class="contact-left">
-              <div class="aboutimg2">
-                <h2 class="abc" style=" text-align: center;">CONTACT US BOOKING ONLINE COOMING SOON</h2>
+              <h2>CONTACT US</h2>
+              <!--<div class="aboutimg2"> -->
+                <!--<h2 class="abc" style=" text-align: center;">CONTACT US</h2> -->
                 <!-- <h3 style="text-align: center; color: white;">RESIDENTIAL | COMMERTIAL | CUSTOM INSTALLS </h3>
                 <p style=" text-align: center; color: white;">Submit your information and we will give you a call</p> -->
-              </div>
+              <!-- </div> -->
 
                 <form onsubmit="return false">
                   <div id="suggestions" class="suggestions">
@@ -264,25 +312,15 @@
                 <p></p>
             </div>
         </div>
-        <div class="container2">
+
+    </section>
+        <div class="mappp">
                                   <div class="contact-left2">
               <h2>OUR LOCATION</h2>
               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d560.9759127354943!2d27.978915963662324!3d-25.61351679778013!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ebfd27b0c2b0abd%3A0x156aea99e00dc420!2s6002%20Maseloane%20St%2C%20Ga-Rankuwa%20Zone%201%2C%20Ga-Rankuwa%2C%200208!5e1!3m2!1sen!2sza!4v1705666033163!5m2!1sen!2sza" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
-                                              <div class="contact-left2">
-              <h2>OUR GALARY AND SPECIALS</h2>
-                  <img id="app2" src="../assets/d1.jpg"  class="aboutimg1234" style="right: 50%; width:100%;display: block;">
-                  <img id="app2" src="../assets/d2.jpg"  class="aboutimg1234" style="right: 50%; width:100%;display: none;">
-                  <img id="app2" src="../assets/d3.jpg"  class="aboutimg1234" style="right: 50%; width:100%;display: none;">
-                  <img id="app2" src="../assets/d4.jpg"  class="aboutimg1234" style="right: 50%; width:100%;display: none;">
-                  <img id="app2" src="../assets/d5.jpg"  class="aboutimg1234" style="right: 50%; width:100%;display: none;">
-                  <img id="app2" src="../assets/d6.jpg"  class="aboutimg1234" style="right: 50%; width:100%;display: none;">
-                  <img id="app2" src="../assets/d7.jpg"  class="aboutimg1234" style="right: 50%; width:100%;display: none;">
-                  <img id="app2" src="../assets/d8.jpg"  class="aboutimg1234" style="right: 50%; width:100%;display: none;">
-            </div>
-        </div>
-    </section>
 
+        </div>
 <!-- <div >
 <iframe src="https://travelsakireminder.web.app/#/signup" width="600" height="800px" scrolling="no" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </div> -->
@@ -313,7 +351,8 @@ export default {
       picturelimit: 0,
       n: '',
       slideIndex: 1,
-      time: ''
+      time: '',
+      linkdata: 'https://kabelodatabase-4e42dc7fda46.herokuapp.com/'
     }
   },
 
@@ -408,10 +447,13 @@ export default {
       })
       if (allAreFilled) {
         // const axios = require('axios')
-        await axios.post('http://localhost:3000/sendemail', {
+        // await axios.post('http://localhost:3000/sendemailmissdiamonds', {
+        await axios.post(`${this.linkdata}sendemailmissdiamonds`, {
           sugestionname: this.sugname,
           sugestionmessage: this.sugmessage,
-          sendereamil: 'joesdrivethrough@gmail.com'
+          sendereamil: 'missdiamondswebsite@gmail.com',
+          sugemail: this.sugemail,
+          sugphone: this.sugphone
         })
           .then((response) => {
             this.sugname = ''
@@ -419,7 +461,7 @@ export default {
             this.sugemail = ''
             this.sugphone = ''
             // console.log(response)
-            swal('Quote Sent', '', 'success', {
+            swal('Message Sent, We will be in touch.', '', 'success', {
               buttons: false,
               timer: 3000
             })
@@ -571,13 +613,13 @@ export default {
 .left-col cite {
    font-size: 1.0em;
 }
-p {
+p{
   font-family: 'Josefin Slab', serif;
   color: black;
 }
 
 body {
-  background: rgb(242,246,249);/* rgba(0, 0, 0, 100); */
+  background: rgba(133, 129, 5, 0.172);  /*rgb(242,246,249);/* rgba(0, 0, 0, 100); */
   margin: 0;
   font-family: 'Poppins';
 }
@@ -625,7 +667,10 @@ ul {
 }
 
 section {
-  padding: 5em 2em;
+  padding: 0em 2em;
+}
+.mappp {
+  padding: 0em 0em;
 }
 
 .hero {
@@ -765,18 +810,13 @@ ul.features-list li:before {
   margin-top: -4.5em; */
 }
 
-h2 {
-  font-size: 2em;
-  color: black;
-}
-
 label {
   display: block;
   font-size: 1.2em;
   margin-bottom: .5em;
 }
 
-input, textarea {
+.userinput, input, textarea {
   width: 100%;
   padding: .8em;
   margin-bottom: 1em;
@@ -819,7 +859,7 @@ input[type="submit"] {
 iframe {
   width: 100%;
   height: 300px;
-  box-shadow: 0 4px 8px 0 rgba(255, 242, 0, 0.2), 0 6px 20px 0 rgba(255, 242, 0, 0.19);
+  /* box-shadow: 0 4px 8px 0 rgba(255, 242, 0, 0.2), 0 6px 20px 0 rgba(255, 242, 0, 0.19); */
 }
 
 nav.menu-btn {
@@ -873,6 +913,15 @@ nav li a:hover {
   cursor: pointer;
 }
 @media screen and (max-width: 768px)  {
+  h2 {
+  color: black;
+  text-decoration: none;
+  display: block;
+  padding: .5em;
+  font-size: 1em;
+  text-align: center;
+font-family: 'Preahvihear', sans-serif;
+}
   input, select, textarea {
     font-size: 16px;
   }
@@ -941,12 +990,21 @@ nav li a:hover {
 }
 
 @media only screen and (min-width: 1080px) {
+    h2 {
+  color: black;
+  text-decoration: none;
+  display: block;
+  padding: .5em;
+  font-size: 2em;
+  text-align: center;
+font-family: 'Preahvihear', sans-serif;
+}
   .container {
     width: 100%;
     margin: 0 auto;
   }
   section {
-    padding: 10em 4em;
+    padding: 0em 0em;
   }
   .hero .container {
     display: -webkit-box;
@@ -1195,6 +1253,14 @@ p {
   text-decoration: none;
   display: block;
   padding: .5em;
+  font-size: 1em;
+  text-align: left;
+font-family: 'Preahvihear', sans-serif;
+}
+label {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  display: block;
   font-size: 1em;
   text-align: left;
 font-family: 'Preahvihear', sans-serif;

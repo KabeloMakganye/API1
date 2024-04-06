@@ -26,7 +26,7 @@ export default {
 <script type="text/javascript">
     (function () {
         var options = {
-            whatsapp: "+27764952492", // WhatsApp number
+            whatsapp: "+27824993400", // WhatsApp number
             call_to_action: "", // Call to action
             button_color: "#9DF8B0", // "#FF6550", // Color of button
             position: "right", // Position may be 'right' or 'left'
