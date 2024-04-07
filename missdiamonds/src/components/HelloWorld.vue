@@ -36,7 +36,26 @@
             </nav>
         </div>
     </div>
-
+    <div class="hero">
+        <div class="container124">
+            <div class="left-col">
+               <!-- <p class="subhead">It's Nitty &amp; Gritty</p> -->
+               <!-- <h1>Limited OFFER </h1> -->
+              <div class="aboutimg1">
+                                <h1 style="color: white; text-align: center;vertical-align:bottom">ABOUT US</h1>
+                <h2 style="color: white; text-align: center;vertical-align:bottom">We Offer Massage Treats(House Calls Available too) Yoni Virginal Products, Facial glow products, weight-loss & weight-gain products. We are looking forward to building an overlasting business relation with you.</h2>
+            </div>
+               <!-- <p style="font-size:50px">&#128295;&#128296;&#128297;</p> -->
+               <!-- <div class="hero-cta">
+                    <a href="#" class="primary-cta">Try for free</a>
+                    <a href="#" class="watch-video-cta">
+                        <img src="../assets/watch.svg" alt="Watch a video">Watch a video
+                    </a>
+                </div> -->
+            </div>
+           <!-- <img src="../assets/108487139-window-wash-1440.jpg" class="hero-img" alt="Illustration">-->
+        </div>
+    </div>
         <!-- <section class="hero12">
         <div class="container" id ="maindev">
             <div class="left-col">
@@ -234,9 +253,9 @@
     <div class="abc"></div>
     <section>
                         <div class="contact-left">
-                        <div class="aboutimg">
+                       <!-- <div class="aboutimg">
                 <h2 style="text-align: center;vertical-align:bottom">We Offer Massage Treats(House Calls Available too) Yoni Virginal Products, Facial glow products, weight-loss & weight-gain products. We are looking forward to building an overlasting business relation with you.</h2>
-            </div>
+            </div> -->
         <div class="container">
 
           <table >
@@ -471,7 +490,7 @@ export default {
             swal('Please use Whatsapp', '', 'error')
           })
       } else {
-        swal('Enter all required fields', '', 'error')
+        swal('Enter all required fields', '', 'erroheror')
       }
       document.getElementById('sendesugg').disabled = false
       document.getElementById('sendesugg').style.backgroundColor = '#2D3E50'
@@ -673,13 +692,16 @@ section {
   padding: 0em 0em;
 }
 
-.hero {
+.container124 {
   /* text-align: center; */
-      background:url('../assets/soren-h-1PKAYeA_nZ4-unsplash.jpg');
+      background:url('../assets/home2.jpg');
      /* background-image-opacity: 0.2; */
       background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-attachment: scroll;
   background-position: center;
+  background-size: 200%;
+  height: 100%;
+      padding: 5em 2em 5em 2em;
 }
 .hero12 {
   text-align: center;
@@ -696,8 +718,8 @@ section {
 
 .left-col h1 {
   font-size: 2.5em;
-  line-height: 1.3em;
-  margin-top: .2em;
+ /* line-height: 1.3em;
+  margin-top: .2em; */
   color: #000000;
 }
 
@@ -705,7 +727,7 @@ section {
   background: var(--primary-color);
   color: white;
   text-decoration: none;
-  padding: .6em 1.3em;
+  /* padding: .6em 1.3em; */
   font-size: 1.4em;
   border-radius: 5em;
   font-weight: bold;
@@ -826,6 +848,15 @@ label {
           box-sizing: border-box;
 }
 
+input[type="date"] {
+  width: 100%;
+  padding: .8em;
+  margin-bottom: 1em;
+  border-radius: .3em;
+  border: 1px solid rgb(45,62,80);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
 input[type="button"] {
   background-color: rgb(45,62,80);
   color: white;
@@ -928,6 +959,9 @@ font-family: 'Preahvihear', sans-serif;
   .navbar nav li.current a {
     color: rgb(0, 0, 0);
   }
+    .hero .container .left-col {
+    margin: 0em 0em 0em 0em;
+  }
 }
 
 @media only screen and (min-width: 768px) {
@@ -1016,9 +1050,7 @@ font-family: 'Preahvihear', sans-serif;
     text-align: left;
   }
   .hero .container .left-col {
-    margin: 3em 3em 0 5em;
-    background: rgba(255, 255, 255, 0.05);
-     backdrop-filter: blur(8px);
+    margin: 5em 5em 5em 5em;
   }
   .hero .container .left-col h1 {
     font-size: 3em;
@@ -1116,10 +1148,10 @@ font-family: 'Preahvihear', sans-serif;
 
 @media only screen and (max-width: 1450px) {
   .hero .container .left-col {
-    border: 15px;
+    /*border: 15px;
     margin: 0em 0em 0 0em;
     background: rgba(255, 255, 255, 0.05);
-     backdrop-filter: blur(8px);
+     backdrop-filter: blur(8px);*/
   }
 }
   .blur {

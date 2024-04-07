@@ -48,17 +48,21 @@
                <!-- <h1>Limited OFFER </h1> -->
                 <!-- <h2>{{signname}}</h2> -->
                 <h2>You have {{points}} Points</h2>
-
                 <form id="registerid" onsubmit="return false">
                   <div id="suggestions" class="suggestions">
-                    <label for="date">BOOK NOW...!</label>
+                    <h2>BOOK NOW...!</h2>
+                    <label for="date">Choose Plan</label>
                     <select class="userinput" id="cars" name="cars" v-model="selectedcar">
                       <option  value="" disabled selected hidden  >Choose Plan</option>
                       <option v-for="n in packagecount" :key= "n">{{ signcarname[n-1] }}</option>
                     </select><br>
-
+                    <label for="date">Choose Date</label>
                     <input type= "date" id="myDate" v-model="date_" max="2050-11-26" required pattern="\d{4}-\d{2}-\d{2}"> <br>
-
+                    <label for="date">Choose Time Slot</label>
+                    <select class="userinput" id="cars" name="cars" v-model="selectedcar">
+                      <option  value="" disabled selected hidden  >Available Slots</option>
+                      <option v-for="n in timeslotscount" :key= "n">{{ slots[n-1] }}</option>
+                    </select><br>
                     <input id="sendesugg" type="button" @click="addwash"  class="send-message-cta" value="Save" >
                   </div>
                 </form>
@@ -118,6 +122,9 @@ export default {
       resultsFetched_4: '',
       resultsFetched_5: '',
       packagecount: 0,
+      resultsFetched_6: '',
+      timeslotscount: 0,
+      slots: [],
       atload: 0,
       nextpage: '',
 
@@ -330,6 +337,16 @@ export default {
       this.packagecount = this.resultsFetched_5.length
       for (let x = 0; x < this.resultsFetched_5.length; x++) {
         this.signcarname[x] = this.resultsFetched_5[x].packagename_
+      }
+
+      // get list of timeslots
+      await fetch(`${this.linkdata}get_all_timeslots`)
+        .then(response => response.json())
+        .then(results => (this.resultsFetched_6 = results))
+
+      this.timeslotscount = this.resultsFetched_6.length
+      for (let x = 0; x < this.resultsFetched_6.length; x++) {
+        this.slots[x] = this.resultsFetched_6[x].timefrom_
       }
       if (maxmonth < 10) {
         if (maxday < 10) {

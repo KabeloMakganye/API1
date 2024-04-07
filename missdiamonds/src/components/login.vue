@@ -224,7 +224,7 @@ export default {
         })
         // to be done after user page is done
         // window.location.href = 'https://brajoecarwash.co.za/#/user' // 'http://localhost:8080/#/user'
-        window.location.href = 'https://www.diamondtreats.co.za/#/user'
+        window.location.href = 'http://localhost:8080/#/user' // 'https://www.diamondtreats.co.za/#/user'
       } else if (this.nextpage === 'wrong') {
         // alert('wrong Password')
         swal('wrong Password', '', 'error')
