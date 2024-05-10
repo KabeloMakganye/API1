@@ -58,8 +58,16 @@
 
                     <!--<label for="conpassword">Confirm Password</label>
                     <input type="password" v-model= "signupPassCon" id="passcon" name="passcon" required oninvalid="this.setCustomValidity('Passwords don't correspond')" oninput="this.setCustomValidity('')"> -->
-
+                    <table style="place-content: space-between;width: 100%;">
+                      <tr>
+                        <td>
                     <input id="sendesugg" type="button" @click="login"  class="send-message-cta" value="Login" >
+                    </td>
+                    <td>
+                    <input id="sendesugg" type="button" @click="register"  class="send-message-cta" value="Register" >
+                    </td>
+                    </tr>
+                    </table>
                   </div>
                 </form>
             </div>
@@ -150,6 +158,9 @@ export default {
       // await fetch(`https://kabelodatabase.herokuapp.com/set_pic/${this.$refs.myFiles.files}`)
       this.pic = event.target.files[0]
     },
+    async register () {
+      window.location.href = 'https://www.diamondtreats.co.za/#/signup'
+    },
     async login () {
       let networkcheck = false
       document.getElementById('sendesugg').disabled = true
@@ -224,7 +235,7 @@ export default {
         })
         // to be done after user page is done
         // window.location.href = 'https://brajoecarwash.co.za/#/user' // 'http://localhost:8080/#/user'
-        window.location.href = 'http://localhost:8080/#/user' // 'https://www.diamondtreats.co.za/#/user'
+        window.location.href = 'https://www.diamondtreats.co.za/#/user'
       } else if (this.nextpage === 'wrong') {
         // alert('wrong Password')
         swal('wrong Password', '', 'error')

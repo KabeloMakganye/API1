@@ -45,6 +45,7 @@
                 <h1 style="color: white; text-align: center;vertical-align:bottom">Welcome To Diamonds Treat</h1>
                 <input style="text-align: center;" id="sendesugg" type="button" @click="tologin" class="send-message-cta aboutimg3" value="Book Now">
             </div>
+
             <!--<div class="aboutimg1">
                 <h1 style="color: white; text-align: center;vertical-align:bottom">ABOUT US</h1>
                 <h2 style="color: white; text-align: center;vertical-align:bottom">We Offer Massage Treats(House Calls Available too) Yoni Virginal Products, Facial glow products, weight-loss & weight-gain products. We are looking forward to building an overlasting business relation with you.</h2>
@@ -361,12 +362,10 @@
         <div class="mappp">
                                   <div class="contact-left2">
               <h2>OUR LOCATION</h2>
-              <iframe class="maps" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d560.9759127354943!2d27.978915963662324!3d-25.61351679778013!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ebfd27b0c2b0abd%3A0x156aea99e00dc420!2s6002%20Maseloane%20St%2C%20Ga-Rankuwa%20Zone%201%2C%20Ga-Rankuwa%2C%200208!5e1!3m2!1sen!2sza!4v1705666033163!5m2!1sen!2sza" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d560.9759127354943!2d27.978915963662324!3d-25.61351679778013!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ebfd27b0c2b0abd%3A0x156aea99e00dc420!2s6002%20Maseloane%20St%2C%20Ga-Rankuwa%20Zone%201%2C%20Ga-Rankuwa%2C%200208!5e1!3m2!1sen!2sza!4v1705666033163!5m2!1sen!2sza" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
 
         </div>
-<!--              <iframe src="https://app.trevor.io/share/dashboard/c1d38fc3-5282-46bf-945f-76faaa484f13/load.html?pin=740fc" width="100%" height="1400px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
-
 <!-- <div >
 <iframe src="https://travelsakireminder.web.app/#/signup" width="600" height="800px" scrolling="no" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </div> -->
@@ -930,7 +929,7 @@ input[type="submit"] {
   box-shadow: 0 4px 8px 0 rgba(255, 242, 0, 0.2), 0 6px 20px 0 rgba(255, 242, 0, 0.19);
 }
 
-.maps {
+iframe {
   width: 100%;
   height: 300px;
   /* box-shadow: 0 4px 8px 0 rgba(255, 242, 0, 0.2), 0 6px 20px 0 rgba(255, 242, 0, 0.19); */

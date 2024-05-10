@@ -51,19 +51,27 @@
                 <form id="registerid" onsubmit="return false">
                   <div id="suggestions" class="suggestions">
                     <h2>BOOK NOW...!</h2>
+
                     <label for="date">Choose Plan</label>
-                    <select class="userinput" id="cars" name="cars" v-model="selectedcar">
-                      <option  value="" disabled selected hidden  >Choose Plan</option>
-                      <option v-for="n in packagecount" :key= "n">{{ signcarname[n-1] }}</option>
+                    <select @mouseleave="shownumberofpeople()" @change="shownumberofpeople()" @click="shownumberofpeople()" required oninvalid="this.setCustomValidity('Choose plan')" oninput="this.setCustomValidity('')" class="userinput" id="cars" name="cars" v-model="selectedcar">
+                      <option value="" disabled selected hidden  >Choose Plan</option>
+                      <option @click="shownumberofpeople()" v-for="n in packagecount" :key= "n">{{ signcarname[n-1] }}</option>
                     </select><br>
+
+                    <div id="enternumberofpeople">
+                    <label for="email">Number of People</label>
+                    <input type="number" v-model= "visitors" id="visitors" name="visitors" required oninvalid="this.setCustomValidity('Enter Number Of People')" oninput="this.setCustomValidity('')">
+                    </div>
+
                     <label for="date">Choose Date</label>
                     <input type= "date" id="myDate" v-model="date_" max="2050-11-26" required pattern="\d{4}-\d{2}-\d{2}"> <br>
+
                     <label for="date">Choose Time Slot</label>
-                    <select class="userinput" id="cars" name="cars" v-model="selectedcar">
+                    <select required oninvalid="this.setCustomValidity('Enter Number Of People')" oninput="this.setCustomValidity('')" class="userinput" id="cars" name="cars" v-model="selectedtime">
                       <option  value="" disabled selected hidden  >Available Slots</option>
                       <option v-for="n in timeslotscount" :key= "n">{{ slots[n-1] }}</option>
                     </select><br>
-                    <input id="sendesugg" type="button" @click="addwash"  class="send-message-cta" value="Save" >
+                    <input id="sendesugg" type="button" @click="addbooking"  class="send-message-cta" value="Save" >
                   </div>
                 </form>
                 <!--<blockquote>{{signsurname}}</blockquote>-->
@@ -125,6 +133,9 @@ export default {
       resultsFetched_6: '',
       timeslotscount: 0,
       slots: [],
+      selectedtime: '',
+      visitors: 1,
+      chosenplannumber: 0,
       atload: 0,
       nextpage: '',
 
@@ -140,7 +151,7 @@ export default {
       lim: 4,
       date_: '',
       selectedcar: '',
-      linkdata: 'https://kabelodatabase-4e42dc7fda46.herokuapp.com/'
+      linkdata: 'https://kabelodatabase-4e42dc7fda46.herokuapp.com/' // 'http://localhost:3000/'
     }
   },
 
@@ -150,6 +161,20 @@ export default {
   methods: {
     directto (n) {
       window.location.href = `https://brajoecarwash.co.za/#/${n}` // 'http://localhost:8080/#/user'
+    },
+    shownumberofpeople () { // show option to add number of people
+      console.log(this.selectedcar)
+      for (let x = 0; x < this.resultsFetched_5.length; x++) {
+        if (this.resultsFetched_5[x].packagename_ === this.selectedcar && this.resultsFetched_5[x].numberofpeople_ === 1) {
+          document.getElementById('enternumberofpeople').style.display = 'inline'
+          console.log(this.resultsFetched_5[x].numberofpeople_)
+          this.chosenpackagenum = x
+          break
+        } else {
+          document.getElementById('enternumberofpeople').style.display = 'none'
+        }
+      }
+      this.visitors = 1
     },
     history (n) {
       swal('Loading', '', 'success', {
@@ -169,6 +194,58 @@ export default {
         document.getElementById('infodata').style.display = 'inline'
         document.getElementById('homebooking').style.display = 'none'
       }
+    },
+    async addbooking () {
+      for (let x = 0; x < this.resultsFetched_5.length; x++) {
+        if (this.resultsFetched_5[x].packagename_ === this.selectedcar) {
+          this.chosenplannumber = x
+          break
+        }
+      }
+      if (this.visitors <= 0) {
+        this.visitors = 1
+      }
+      document.getElementById('sendesugg').disabled = true
+      document.getElementById('sendesugg').style.backgroundColor = '#F0998B'
+      let allAreFilled = true /* check if all required fields are entered */
+      document.getElementById('suggestions').querySelectorAll('[required]').forEach(function (i) {
+        if (!allAreFilled) return
+        if (!i.value) allAreFilled = false
+      })
+      if (allAreFilled) {
+        const axios = require('axios')
+        await axios.post(`${this.linkdata}fn_add_new_booking`, {
+          email: this.signemail,
+          usid: this.usid,
+          pcid: this.resultsFetched_5[this.chosenplannumber].pcid_,
+          numberofpeople: this.visitors,
+          bookdate: this.date_,
+          price: (this.visitors * this.resultsFetched_5[this.chosenplannumber].price_),
+          selectedtime: this.selectedtime
+        })
+          .then((response) => {
+            console.log(response)
+            // alert(response.data)
+            if (response.data === 'Invalid email') {
+              swal('Invalid email', '', 'error')
+            } else if (response.data === 'Something went wrong. please try again.') {
+              swal('Something went wrong', '', 'error')
+            } else if (response.data === 'Booking already exist please choose different slot') {
+              swal('Booking already exist please choose different slot', '', 'error')
+            } else {
+              swal('Booking Made, copy sent to your email', '', 'success')
+              this.selectedcar = ''
+              this.visitors = 1
+            }
+          }, (error) => {
+            console.log(error)
+          })
+      } else {
+        // alert('fill up everything')
+        swal('fill up everything', '', 'error')
+      }
+      document.getElementById('sendesugg').disabled = false
+      document.getElementById('sendesugg').style.backgroundColor = '#31F300'
     },
     async addwash () {
       document.getElementById('sendesugg').disabled = true
@@ -211,9 +288,20 @@ export default {
         })
       } */
       /* Temporary message as we still developing */
-      swal('Booking comin soon', '', 'success', {
+      for (let x = 0; x < this.resultsFetched_5.length; x++) {
+        if (this.resultsFetched_5[x].packagename_ === this.selectedcar) {
+          this.chosenplannumber = x
+          break
+        }
+      }
+      if (this.visitors <= 0) {
+        this.visitors = 1
+      }
+      swal('Booking coming soon Total R' + (this.visitors * this.resultsFetched_5[this.chosenplannumber].price_) + ' Deposit R' +
+      ((this.visitors * this.resultsFetched_5[this.chosenplannumber].price_) / 2)
+        , '', 'success', {
         buttons: false,
-        timer: 3000
+        timer: 5000
       })
 
       document.getElementById('sendesugg').disabled = false
@@ -296,6 +384,7 @@ export default {
       this.signname = this.resultsFetched_3[0].name_
       this.signsurname = this.resultsFetched_3[0].surname_
       this.signplate = this.resultsFetched_3[0].platenum_
+      this.usid = this.resultsFetched_3[0].usid_
       /* for (let index = 0; index < this.lim; index++) {
         this.signcarname[index] = this.resultsFetched_3[index].carname_
         this.signcarid[index] = this.resultsFetched_3[index].ucid_

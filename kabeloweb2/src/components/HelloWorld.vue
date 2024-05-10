@@ -13,21 +13,7 @@
     </ol>
   </div> -->
     <div class="navbar" style="position: -webkit-sticky;  position: sticky; top: 0;  z-index: 5;">
-        <div class="container">
-            <a class="logo" href="#">Kabelo</a>
-            <!-- <img @click="addmenu"  class="mobile-menu" src="../assets/menu.svg" alt="Open Navigation">
-            <nav id="mysidebar">
-                <img @click="removemenu" id="mobile-exit" class="mobile-menu-exit" src="../assets/exit.svg" alt="Close Navigation">
-                <ul class="primary-nav">
-                  <li class="current"><a @click="removemenu">Home</a></li>
-                </ul>
-
-                <ul class="secondary-nav">
-                    <li><a @click="directto('contact')">Contact</a></li>
-                    <li><a @click="directto('Account')">Account</a></li>
-                </ul>
-            </nav> -->
-        </div>
+      <a class="logo" href="#">Kabelo</a>
     </div>
 
         <!-- <section class="hero12">
@@ -52,60 +38,103 @@
             </DIV>
         </div>
     </section>-->
-    <div class="slideshow-container" id="kabelo">
+    <!-- <div class="slideshow-container" id="kabelo">
 <div class="mySlides fade">
 
   <img id="app2" src="../assets/kb.jpg" style="width:100%;display: block;  filter: blur(0px);-webkit-filter: blur(0px);">
- <!-- <div class="text2"><H3 class="text2">WE INSTALL SOLAR SYSTEMS YOU SAVE MONEY Get a Quote Now</H3></div>
-  <div class="text2"><p class="text2"></p></div> -->
 </div>
 <div class="mySlides fade">
 
 <img id="app2" src="../assets/kb.jpg" style="width:100%;display: block;  filter: blur(0px);-webkit-filter: blur(0px);">
-<!-- <div class="text2"><H3 class="text2">WE INSTALL SOLAR SYSTEMS YOU SAVE MONEY Get a Quote Now</H3></div>
-  <div class="text2"><p class="text2"></p></div> -->
 </div>
-</div>
+</div> -->
+
+        <div class="hero">
+        <div class="containeraboutus">
+            <div class="left-col">
+               <!-- <p class="subhead">It's Nitty &amp; Gritty</p> -->
+               <!-- <h1>Limited OFFER </h1> -->
+              <div class="toptop">
+            <div class="aboutimg1">
+                <h1 style="color: black; text-align: center;vertical-align:bottom">About Me</h1>
+                <h4 style="color: black; text-align: left;vertical-align:bottom">Hello there! I’m Kabelo Christiaan Makganye, a full-stack developer with three years of immersive experience in crafting robust and scalable web applications. Specializing in a diverse tech stack that includes ASP.NET C#, Node.js, PostgreSQL, Microsoft SQL Server, Telerik, Vue.js, JavaScript, and CSS, I bring a wealth of expertise to every project. Here's a glimpse into my journey in the world of web development:</h4>
+                <h3 style="color: black; text-align: left;vertical-align:bottom">ASP.NET C# Expertise</h3>
+                <h4 style="color: black; text-align: left;vertical-align:bottom">With a solid foundation in ASP.NET C#, I’ve honed my skills in building dynamic and high-performance web applications on the Microsoft platform. From developing RESTful APIs to implementing complex business logic, I leverage the power of ASP.NET C# to deliver seamless user experiences.</h4>
+
+                <h3 style="color: black; text-align: left;vertical-align:bottom">Node.js Enthusiast</h3>
+                <h4 style="color: black; text-align: left;vertical-align:bottom">As a passionate advocate of Node.js, I embrace its asynchronous, event-driven architecture to develop fast and scalable server-side applications. Whether it's building APIs, handling I/O operations, or creating real-time applications, I harness the full potential of Node.js to drive innovation.</h4>
+
+                <h3 style="color: black; text-align: left;vertical-align:bottom">Database Wizard</h3>
+                <h4 style="color: black; text-align: left;vertical-align:bottom">From PostgreSQL to Microsoft SQL Server, I have a knack for designing and optimizing database schemas to ensure efficient data storage and retrieval. With a keen eye for performance tuning and data integrity, I strive to create robust database solutions that underpin the reliability of web applications.</h4>
+
+                <h3 style="color: black; text-align: left;vertical-align:bottom">Front-End</h3>
+                <h4 style="color: black; text-align: left;vertical-align:bottom">With expertise in Vue.js, JavaScript, and CSS, I bring creativity and finesse to front-end development. Whether it's crafting responsive layouts, implementing interactive user interfaces, or enhancing user experiences with dynamic content, I’m passionate about bringing designs to life with pixel-perfect precision.</h4>
+
+                <h3 style="color: black; text-align: left;vertical-align:bottom">Telerik</h3>
+                <h4 style="color: black; text-align: left;vertical-align:bottom">Leveraging the power of Telerik, I accelerate development workflows and enhance productivity with a suite of UI components and tools. From grid controls to charting libraries, I harness Telerik's capabilities to streamline development and deliver visually stunning web applications.</h4>
+
+                <h3 style="color: black; text-align: left;vertical-align:bottom">Continuous Learner</h3>
+                <h4 style="color: black; text-align: left;vertical-align:bottom">In the rapidly evolving landscape of web development, learning is a constant journey. I am committed to staying updated with the latest technologies, tools, and best practices to ensure that my solutions are always at the forefront of innovation.</h4>
+
+                <h3 style="color: black; text-align: left;vertical-align:bottom">Let's Collaborate</h3>
+                <h4 style="color: black; text-align: left;vertical-align:bottom">I’m excited to collaborate with like-minded developers, businesses, and organizations to bring innovative ideas to life. Whether you have a project in mind, need technical consultation, or simply want to connect, I’m here to help!</h4>
+
+                <h4 style="color: black; text-align: left;vertical-align:bottom">Thank you for visiting my website and taking the time to learn more about me. Let’s embark on a journey of creativity, innovation, and excellence together.</h4>
+                <h4 style="color: black; text-align: left;vertical-align:bottom">Warm regards.</h4>
+                <h4 style="color: black; text-align: left;vertical-align:bottom">Kabelo</h4>
+            </div>
+              </div>
+               <!-- <p style="font-size:50px">&#128295;&#128296;&#128297;</p> -->
+               <!-- <div class="hero-cta">
+                    <a href="#" class="primary-cta">Try for free</a>
+                    <a href="#" class="watch-video-cta">
+                        <img src="../assets/watch.svg" alt="Watch a video">Watch a video
+                    </a>
+                </div> -->
+            </div>
+           <!-- <img src="../assets/108487139-window-wash-1440.jpg" class="hero-img" alt="Illustration">-->
+        </div>
+    </div>
 
 <!-- <div style="text-align:center">
   <span class="dot" @click="currentSlide(1)"></span>
   <span class="dot" @click="currentSlide(2)"></span>
   <span class="dot" @click="currentSlide(3)"></span>
 </div> -->
-   <!-- <section class="testimonials-section">
+    <section class="testimonials-section">
         <div class="container">
-          <h2>About Us</h2>
+          <h2 style="text-align: center">Projects</h2>
           <table >
             <tr >
               <td >
-                <img id="app2" class="aboutimg" src="../assets/moritz-kindler-mRBywMReXH8-unsplash.jpg" style="width:100%;display: block;">
+                <img id="app2" class="aboutimg" src="../assets/pic1.jpg" style="width:100%;display: block;">
               </td>
               <td>
-                <p>Our company plays a vital role in the transition to a clean energy future, this is essential part of the renewable energy industry.</p>
+                <p class="aboutimg5656">Website for energetic women, who offer massage services. website is used as booking platform and to display any import information related to services provided. Have a look <a href="https://www.diamondtreats.co.za/" style="color: blue;">Link</a></p>
               </td>
             </tr>
             <tr >
               <td>
-                <p>We offer a wide range of services related to solar energy, including site assessment, system design, installation, and maintenance.</p>
+                <p class='aboutimg'>This is my home business website, primary use is to post pictures related to our services. anyone who is registered with a valid email can log in an post pictures. main function is to get complains and suggestions from clients and show all services provided. Have a look <a href="https://brajoecarwash.co.za" style="color: blue;">Link</a></p>
               </td>
               <td>
-                <img id="app2" class="aboutimg" src="../assets/alessandro-bianchi-_kdTyfnUFAc-unsplash.jpg" style="width:100%;display: block;">
+                <img id="app2" class="aboutimg5656" src="../assets/pic2.jpg" style="width:100%;display: block;">
               </td>
             </tr>
-            <tr >
+            <!--<tr >
               <td>
                 <img id="app2" class="aboutimg" src="../assets/ricardo-gomez-angel-MagdWoazARo-unsplash.jpg" style="width:100%;display: block;">
               </td>
               <td >
                 <p >Our primary goal is to help our customers transition to clean, renewable energy sources and reduce their carbon footprint. By providing high-quality solar systems that generate electricity from the sun's rays. This can help customers reduce their reliance on Eskom.</p>
               </td>
-            </tr>
+            </tr> -->
           </table>
 
         </div>
     </section>
 
-    <section class="testimonials-section2">
+   <!-- <section class="testimonials-section2">
         <div class="container">
           <h2>Services</h2>
             <div class="navbardown">
@@ -181,10 +210,22 @@
     <section class="contact-section">
         <div class="container">
             <div class="contact-left">
-              <div class="aboutimg2">
-                <h2 class="abc" style=" text-align: center;">Profile coming soon </h2>
-              </div>
-                <p></p>
+                <h2>Contact Me</h2>
+
+                <form onsubmit="return false">
+                  <div id="suggestions" class="suggestions">
+                    <label for="name">Name</label>
+                    <input type="text" v-model= "sugname" id="name" name="name" required oninvalid="this.setCustomValidity('Enter Name')" oninput="this.setCustomValidity('')">
+
+                    <!-- <label for="email">Email</label>
+                    <input type="email" v-model= "sugemail" id="email" name="email" required oninvalid="this.setCustomValidity('Enter Valid Email')" oninput="this.setCustomValidity('')">
+-->
+                    <label for="message">Message</label>
+                    <textarea style="resize: none;" name="message" v-model= "sugmessage" id="message" cols="30" rows="10" required oninvalid="this.setCustomValidity('Enter Suggestion message')" oninput="this.setCustomValidity('')"></textarea>
+
+                    <input id="sendesugg" type="button" @click="sendemail" class="send-message-cta" value="Send">
+                  </div>
+                </form>
             </div>
 
         </div>
@@ -217,7 +258,8 @@ export default {
       picturelimit: 0,
       n: '',
       slideIndex: 1,
-      time: ''
+      time: '',
+      linkdata: 'https://kabelodatabase-4e42dc7fda46.herokuapp.com/'
     }
   },
 
@@ -299,7 +341,7 @@ export default {
       })
       if (allAreFilled) {
         // const axios = require('axios')
-        await axios.post('https://kabelodatabase.herokuapp.com/sendemail', {
+        await axios.post(`${this.linkdata}sendemail`, {
           sugestionname: this.sugname,
           sugestionmessage: this.sugmessage,
           sendereamil: 'joesdrivethrough@gmail.com'
@@ -310,7 +352,7 @@ export default {
             this.sugemail = ''
             this.sugphone = ''
             // console.log(response)
-            swal('Quote Sent', '', 'success', {
+            swal('Message sent', '', 'success', {
               buttons: false,
               timer: 3000
             })
@@ -330,7 +372,7 @@ export default {
       } */
     },
     async count () {
-      await fetch(`https://kabelodatabase.herokuapp.com/fn_add_load/solarinstalls`)
+      await fetch(`${this.linkdata}fn_add_load/Kabelomakganye`)
     },
     rerun () {
       this.time = setInterval(() => this.plusSlides(1), 30000)
@@ -409,8 +451,17 @@ export default {
 }
 .aboutimg {
     /* background-color: white; */
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+ /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
   margin-bottom: 25px;
+
+transform: rotate(5deg);
+}
+.aboutimg5656 {
+    /* background-color: white; */
+ /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
+  margin-bottom: 25px;
+
+transform: rotate(-5deg);
 }
 .left-col cite {
    font-size: 1.0em;
@@ -421,7 +472,7 @@ p {
 }
 
 body {
-  background: rgba(204, 240, 255, 0.26);
+  background: rgb(231,248,255); /* rgba(204, 240, 255, 0.26); */
   margin: 0;
   font-family: 'Poppins';
 }
@@ -472,13 +523,30 @@ section {
   padding: 5em 2em;
 }
 
+.aboutimg1 {
+    /*background-color: rgba(255, 255, 255, 0.4);c*/
+    background:url('../assets/paper2.jpg');
+  /*-webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);*/
+  padding: 20px;
+  font-weight: bold;
+}
+
 .hero {
   /* text-align: center; */
-      background:url('../assets/soren-h-1PKAYeA_nZ4-unsplash.jpg');
-      background-image-opacity: 0.2;
+      /* background:url('../assets/soren-h-1PKAYeA_nZ4-unsplash.jpg'); */
+    background:url('../assets/soren-h-1PKAYeA_nZ4-unsplash.jpg');
+     /* backdrop-filter: blur(8px);
       background-repeat: no-repeat;
   background-attachment: fixed;
+  background-position: center; */
+
+        background-repeat: no-repeat;
+  background-attachment: scroll;
   background-position: center;
+  height: 100%;
+      padding: 5em 2em 5em 2em;
+
 }
 .hero12 {
   text-align: center;
@@ -572,7 +640,7 @@ ul.features-list li:before {
 }
 
 .testimonials-section {
-  background: var(--primary-color);
+ /* background: var(--primary-color); */
   color: white;
   padding: 1em 1em;
 }
@@ -750,7 +818,10 @@ nav li a:hover {
     margin: 0 auto;
   }
   section {
-    padding: 10em 4em;
+    padding: 10em 15em;
+  }
+  .toptop {
+    padding: 10em 15em;
   }
   .hero .container {
     display: -webkit-box;
@@ -763,7 +834,7 @@ nav li a:hover {
   }
   .hero .container .left-col {
     margin: 3em 3em 0 5em;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgb(231,248,255); /* rgba(255, 255, 255, 0.05); */
      backdrop-filter: blur(8px);
   }
   .hero .container .left-col h1 {
@@ -861,10 +932,10 @@ nav li a:hover {
 
 @media only screen and (max-width: 1450px) {
   .hero .container .left-col {
-    border: 15px;
+   /* border: 15px;
     margin: 0em 0em 0 0em;
     background: rgba(255, 255, 255, 0.05);
-     backdrop-filter: blur(8px);
+     backdrop-filter: blur(8px);*/
   }
 }
   .blur {

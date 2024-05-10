@@ -151,7 +151,7 @@ export default {
         })
         if (allAreFilled) {
           const axios = require('axios')
-          await axios.post(`${this.linkdata}register`, {
+          await axios.post(`${this.linkdata}registerbrajoe`, {
             name: this.signname,
             surname: this.signsurname,
             carname: this.signcarname,

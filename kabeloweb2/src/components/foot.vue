@@ -28,7 +28,7 @@
         </div>
       </div>
     <div class="feets">
-    <h5 style="text-align:center">Copyright © 2023 All Rights Reserved. Designed by <a href="">Kabelo</a> </h5>
+    <h5 style="text-align:center">Copyright © 2024 All Rights Reserved. Designed by <a href="">Kabelo</a> </h5>
     </div>
      </form>
   </div>
