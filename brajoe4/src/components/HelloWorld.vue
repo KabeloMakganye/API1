@@ -251,7 +251,7 @@ export default {
         document.getElementById('abc').appendChild(elem)
       } */
       for (let index = 0; index < this.picturelimit; index++) {
-        this.pictures[index].url_ = 'https://res.cloudinary.com/' + this.cloudinaryuser + '/image/upload/' + this.pictures[index].url_.substring(0, this.pictures[index].url_.indexOf('@') - 1) + '/' + this.pictures[index].url_.substring(this.pictures[index].url_.indexOf('@') + 1, this.pictures[index].url_.length)
+        this.pictures[index].url_ = 'https://res.cloudinary.com/' + this.cloudinaryuser + '/image/upload/t_brajoe/' + this.pictures[index].url_.substring(0, this.pictures[index].url_.indexOf('@') - 1) + '/' + this.pictures[index].url_.substring(this.pictures[index].url_.indexOf('@') + 1, this.pictures[index].url_.length)
         // console.log(this.pictures[index].url_) // .[this.pictures[index].indexOf('@')] =
         this.picturesby[index] = this.pictures[index].by_
 

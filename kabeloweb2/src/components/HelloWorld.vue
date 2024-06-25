@@ -110,7 +110,7 @@
                 <img id="app2" class="aboutimg" src="../assets/pic1.jpg" style="width:100%;display: block;">
               </td>
               <td>
-                <p class="aboutimg5656">Website for energetic women, who offer massage services. website is used as booking platform and to display any import information related to services provided. Have a look <a href="https://www.diamondtreats.co.za/" style="color: blue;">Link</a></p>
+                <p class="aboutimg5656">Website for energetic women, who offer massage services. website is used as booking platform and to display any import information related to services provided. Have a look <a href="https://kabelonextapp1.web.app/#/" style="color: blue;">Link</a></p>
               </td>
             </tr>
             <tr >
